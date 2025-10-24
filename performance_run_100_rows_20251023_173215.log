@@ -1,0 +1,1700 @@
+Logging output to: C:\Users\ChandraKalidindi\deep\test-xx\performance_reports\performance_run_100_rows_20251023_173215.log
+ML Pipeline Agent System - Performance Test Run (100 rows)
+============================================================
+
+######################################################################
+STARTING TEST CASE 1: Diabetes Prediction - Full Configuration
+######################################################################
+Adjusting synthetic data rows to: 100
+============================================================
+RUNNING TEST CASE: Diabetes Prediction - Full Configuration
+============================================================
+Overriding dataset num_rows to: 100
+[Paths Initialized] Data: C:\Users\ChandraKalidindi\deep\test-xx\data
+[Paths Initialized] Models: C:\Users\ChandraKalidindi\deep\test-xx\models
+[Paths Initialized] Plots: C:\Users\ChandraKalidindi\deep\test-xx\models\plots
+[Paths Initialized] Data: C:\Users\ChandraKalidindi\deep\test-xx\data
+[Paths Initialized] Models: C:\Users\ChandraKalidindi\deep\test-xx\models
+[Paths Initialized] Plots: C:\Users\ChandraKalidindi\deep\test-xx\models\plots
+Overall Test Case Duration: 0.0000 seconds.
+AGENT 1: User Prompt Parser - Processing user request...
+AGENT 1: Successfully parsed prompt for classification task
+AGENT 1: Dataset will have 400 rows and 5 features
+AGENT 1: Domain identified as: healthcare
+AGENT 1: User Prompt Parser: Completed in 61.0516 seconds.
+AGENT 1: User Prompt Parser: Memory increase: -196.78 MB.
+Warning: Failed to capture PyCaret metrics (cannot import name 'get_metrics' from 'pycaret.utils.generic' (C:\Users\ChandraKalidindi\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pycaret\utils\generic.py))
+Overall Test Case Duration: 61.0574 seconds.
+AGENT 2: Synthetic Data Generation / Loading - Starting data process...
+AGENT 2: Synthetic data generated successfully with 400 rows and 6 columns.
+AGENT 2: Data saved to: C:\Users\ChandraKalidindi\deep\test-xx\data\healthcare_20251023_173317.csv
+AGENT 2: Identified target column: 'diabetes_status'
+AGENT 2: DataFrame shape stored in state: (400, 6)
+AGENT 2: Synthetic Data Generation: Completed in 0.5234 seconds.
+AGENT 2: Synthetic Data Generation: Memory increase: 14.96 MB.
+Overall Test Case Duration: 61.5828 seconds.
+AGENT 3: EDA Analysis - Starting data exploration...
+AGENT 3: Successfully loaded data from C:\Users\ChandraKalidindi\deep\test-xx\data\healthcare_20251023_173317.csv
+AGENT 3: EDA analysis completed. Results saved to: C:\Users\ChandraKalidindi\deep\test-xx\data\healthcare_20251023_173317_eda.json
+AGENT 3: EDA Analysis: Completed in 0.0767 seconds.
+AGENT 3: EDA Analysis: Memory increase: 6.20 MB.
+Overall Test Case Duration: 61.6595 seconds.
+AGENT 7: Configuration Management - Setting up ML pipeline configuration...
+AGENT 7: Applying user-provided ML configuration...
+AGENT 7: User specified model type: rf
+AGENT 7: Applied custom CV folds: 5
+AGENT 7: Applied custom train size: 0.8
+AGENT 7: Final ML Configuration to be passed to PyCaret: {
+  "task_type": "classification",
+  "model_type": "rf",
+  "session_id": 71522,
+  "data_setup_params": {
+    "fold": 5,
+    "train_size": 0.8
+  },
+  "compare_models": false,
+  "n_top_models": 3,
+  "metrics": null
+}
+AGENT 7: Configuration Agent: Completed in 0.0034 seconds.
+AGENT 7: Configuration Agent: Memory increase: 0.15 MB.
+Overall Test Case Duration: 61.6629 seconds.
+AGENT 4: PyCaret ML Model - Starting model training process...
+AGENT 4: PyCaret Classification Setup complete for target 'diabetes_status'.
+AGENT 4: Training dataset saved to: C:\Users\ChandraKalidindi\deep\test-xx\data\healthcare_20251023_173317_training.csv
+AGENT 4: Test dataset saved to: C:\Users\ChandraKalidindi\deep\test-xx\data\healthcare_20251023_173317_test.csv
+      Accuracy     AUC  Recall   Prec.      F1   Kappa     MCC
+Fold                                                          
+0       0.5625  0.5084  0.4138  0.5217  0.4615  0.1013  0.1032
+1       0.4375  0.3901  0.2069  0.3158  0.2500 -0.1695 -0.1793
+2       0.5938  0.5394  0.4138  0.5714  0.4800  0.1604  0.1661
+3       0.6250  0.5985  0.4828  0.6087  0.5385  0.2297  0.2341
+4       0.6719  0.6880  0.4286  0.7059  0.5333  0.3029  0.3254
+Mean    0.5781  0.5449  0.3892  0.5447  0.4527  0.1250  0.1299
+Std     0.0791  0.0987  0.0946  0.1294  0.1056  0.1620  0.1713
+AGENT 4: Created specific classification model: rf
+AGENT 4: Classification Model Metrics: {'Accuracy': 0.5625, 'AUC': 0.5084, 'Recall': 0.4138, 'Prec.': 0.5217, 'F1': 0.4615, 'Kappa': 0.1013, 'MCC': 0.1032}
+AGENT 4 DEBUG: Model object type: <class 'sklearn.ensemble._forest.RandomForestClassifier'>
+AGENT 4 DEBUG: Model object attributes: ['__abstractmethods__', '__annotations__', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__setstate__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_abc_impl', '_check_feature_names', '_check_n_features', '_compute_oob_predictions', '_estimator_type', '_get_oob_predictions', '_get_param_names', '_get_tags', '_make_estimator', '_more_tags', '_parameter_constraints', '_repr_html_', '_repr_html_inner', '_repr_mimebundle_', '_required_parameters', '_set_oob_score_and_attributes', '_validate_X_predict', '_validate_data', '_validate_estimator', '_validate_params', '_validate_y_class_weight', 'apply', 'base_estimator', 'base_estimator_', 'bootstrap', 'ccp_alpha', 'class_weight', 'classes_', 'criterion', 'decision_path', 'estimator', 'estimator_', 'estimator_params', 'estimators_', 'feature_importances_', 'feature_names_in_', 'fit', 'get_params', 'max_depth', 'max_features', 'max_leaf_nodes', 'max_samples', 'min_impurity_decrease', 'min_samples_leaf', 'min_samples_split', 'min_weight_fraction_leaf', 'n_classes_', 'n_estimators', 'n_features_in_', 'n_jobs', 'n_outputs_', 'oob_score', 'predict', 'predict_log_proba', 'predict_proba', 'random_state', 'score', 'set_params', 'verbose', 'warm_start']
+AGENT 4 DEBUG: Model save path: C:\Users\ChandraKalidindi\deep\test-xx\models\healthcare_20251023_173317_model
+AGENT 4 DEBUG: Model has predict method: True
+Transformation Pipeline and Model Successfully Saved
+AGENT 4: Classification model saved to: C:\Users\ChandraKalidindi\deep\test-xx\models\healthcare_20251023_173317_model.pkl
+Warning: Could not extract metrics via pull(): 'charmap' codec can't encode character '\u2705' in position 0: character maps to <undefined>
+AGENT 4 DEBUG: Model file exists after saving: C:\Users\ChandraKalidindi\deep\test-xx\models\healthcare_20251023_173317_model.pkl
+AGENT 4 DEBUG: Model file size: 1066546 bytes
+AGENT 4 DEBUG: Loaded model type: <class 'numpy.ndarray'>
+AGENT 4 DEBUG: Loaded model has predict: False
+AGENT 4 Warning: Could not generate PR curve plot for classification: PyCaret did not save PR curve plot to expected temp path: C:\Users\ChandraKalidindi\deep\test-xx\PR Curve.png
+AGENT 4: Confusion Matrix plot saved to: C:\Users\ChandraKalidindi\deep\test-xx\models\plots\healthcare_20251023_173317_confusion_matrix.png
+AGENT 4: Feature Importance plot saved to: C:\Users\ChandraKalidindi\deep\test-xx\models\plots\healthcare_20251023_173317_feature_importance.png
+AGENT 4: PyCaret Agent (Classification): Completed in 40.0189 seconds.
+AGENT 4: PyCaret Agent (Classification): Memory increase: 140.53 MB.
+Overall Test Case Duration: 101.6832 seconds.
+AGENT 5: Model Interpretation - Analyzing model performance...
+AGENT 5: JSON parsing error from LLM response: Expecting ',' delimiter: line 12 column 5 (char 1793)
+AGENT 5: Raw LLM response: {
+    "performance_summary": "The Diabetes Prediction model shows moderate performance with an accuracy of 0.0791, indicating a good but potentially biased model.",
+    "key_insights": [
+        "Insight 1: The model achieves high accuracy due to its ability to correctly classify patients with diabetes. However, the recall is low, indicating missed positive cases, potentially leading to false negatives. This highlights the importance of balancing precision and recall in imbalanced datasets.",
+        "Insight 2: The model performs better on the diabetes_status column than on the other features, suggesting that it might be more informative for the task. This could be due to the presence of many imbalanced classes in the diabetes_status column.",
+        "Insight 3: The PR curve indicates a good balance between precision and recall, indicating that the model performs well in both areas. This is important for imbalanced datasets, where precision and recall are often conflicting.",
+        "Insight 4: The model might be overfitting on the training data due to the significant gap between training and test metrics. This could lead to lower performance on unseen data, as seen by the decrease in accuracy and AUC values."
+    ],
+    "recommendations": [
+        "Recommendation 1: Consider using feature engineering techniques to add more informative features that might improve the model's performance. Alternatively, explore advanced ensemble methods like random forests or gradient boosting that can handle high-dimensional data.",
+        "Recommendation 2: Evaluate the model on a larger dataset with balanced class distribution to assess itsgeneralizability and potential for real-world deployment. Additionally, explore early stopping techniques to prevent overfitting."
+    }
+}
+AGENT 5: Model Interpretation: Completed in 49.5491 seconds.
+AGENT 5: Model Interpretation: Memory increase: -5.87 MB.
+Overall Test Case Duration: 151.2323 seconds.
+AGENT 6: Business Rule Application / Model Decision Explanation - Starting...
+AGENT 6: Business rule detected: 'Patients with age > 50 and BMI > 30 should be marked as 'High Risk''. Attempting to apply...
+AGENT 6: Raw LLM response for business rule: ```python
+import pandas as pd
+
+# Define the business rule
+rule_description = "Patients with age > 50 and BMI > 30 should be marked as 'High Risk'"
+
+# Define the data columns and their types
+data_columns = {
+    "age": "numeric",
+    "bmi": "numeric",
+    "glucose": "numeric",
+    "blood_pressure": "numeric",
+    "insulin_level": "numeric",
+    "diabetes_status": "category"
+}
+
+# Load the data
+data = pd.read_csv("your_data.csv", usecols=data_columns.keys())
+
+# Apply the business rule
+data["diabetes_status"] = data["age"] > 50 and data["bmi"] > 30
+
+# Generate the JSON output
+output = {
+    "rule_description": rule_description,
+    "suggested_python_code": "data[data['age'] > 50 and data['bmi'] > 30]['diabetes_status'].astype('str')",
+    "expected_impact": "The 'diabetes_status' column will be marked as 'High Risk' for patients with age > 50 and BMI > 30."
+}
+
+# Print the JSON output
+print(output)
+```
+AGENT 6: JSON parsing error from LLM for business rule interpretation: Expecting value: line 1 column 1 (char 0)
+AGENT 6: Business rule/model explanation saved to file: data\inferences\healthcare_20251023_173317_business_rule_explanation.json
+AGENT 6: Business Rule Application: Completed in 50.4564 seconds.
+AGENT 6: Business Rule Application: Memory increase: -6.22 MB.
+Overall Test Case Duration: 201.6887 seconds.
+AGENT 8: Report Generation - Compiling final report...
+AGENT 8: Final report content generated successfully.
+AGENT 8: Final report saved to file: C:\Users\ChandraKalidindi\deep\test-xx\reports\healthcare_20251023_173317_final_report.md
+REPORT FORMATTER AGENT: Completed in 134.9266 seconds.
+Overall Test Case Duration: 336.6163 seconds.
+
+============================================================
+RESULTS SUMMARY FOR TEST CASE: Diabetes Prediction - Full Configuration
+============================================================
+
+--- DEBUG: STATE CONTENT ANALYSIS ---
+user_prompt: str - Create a diabetes prediction dataset with patient medical data including age, BMI, glucose levels, and other health indicators. I need 400 rows of data, the target is 'diabetes_status' which is binary. Features should include 'age' (20-80), 'bmi' (15-40), 'glucose' (70-200), 'blood_pressure' (80-180), and 'insulin_level' (5-50).
+business_rule: str - Patients with age > 50 and BMI > 30 should be marked as 'High Risk'
+ml_configuration: dict - Keys: ['model_type', 'cv_folds', 'train_size']
+pipeline_id: str - 
+agent_timings: list - Length: 8
+
+--- MEMORY USAGE TRACKING ---
+Agent: AGENT 1: User Prompt Parser
+  Memory Increase: -196.78 MB
+Agent: AGENT 2: Synthetic Data Generation
+  Memory Increase: 14.96 MB
+Agent: AGENT 3: EDA Analysis
+  Memory Increase: 6.20 MB
+Agent: AGENT 7: Configuration Agent
+  Memory Increase: 0.15 MB
+Agent: AGENT 4: PyCaret Agent (Classification)
+  Memory Increase: 140.53 MB
+Agent: AGENT 5: Model Interpretation
+  Memory Increase: -5.87 MB
+Agent: AGENT 6: Business Rule Application
+  Memory Increase: -6.22 MB
+dataset_specification_json: dict - Keys: []
+synthetic_data_path: str - 
+synthetic_data_df: None
+target_column: str - 
+dataset_name: str - 
+eda_json_path: str - 
+eda_json: dict - Keys: []
+model_path: str - 
+model_plots_paths: dict - Keys: []
+model_metrics: dict - Keys: []
+pycaret_code: str - 
+training_dataset_path: str - 
+test_dataset_path: str - 
+model_interpretation_json: dict - Keys: []
+modified_dataset_path: str - 
+business_rule_explanation_json: dict - Keys: []
+final_ml_configuration: dict - Keys: []
+final_report_json: dict - Keys: []
+base_data_path: str - C:\Users\ChandraKalidindi\deep\test-xx\data
+base_models_path: str - C:\Users\ChandraKalidindi\deep\test-xx\models
+base_plots_path: str - C:\Users\ChandraKalidindi\deep\test-xx\models\plots
+task_type: str - 
+data_characteristics: dict - Keys: []
+automl_config: dict - Keys: []
+model_artifact: str - 
+evaluation_metrics: dict - Keys: []
+deployment_config: dict - Keys: []
+
+--- PERFORMANCE METRICS ---
+Agent Timings:
+- AGENT 1: User Prompt Parser: 61.05 seconds
+- AGENT 2: Synthetic Data Generation: 0.52 seconds
+- AGENT 3: EDA Analysis: 0.08 seconds
+- AGENT 7: Configuration Agent: 0.00 seconds
+- AGENT 4: PyCaret Agent (Classification): 40.02 seconds
+- AGENT 5: Model Interpretation: 49.55 seconds
+- AGENT 6: Business Rule Application: 50.46 seconds
+- AGENT 8: Report Formatter: 134.93 seconds
+
+Agent Memory Usage:
+- AGENT 1: User Prompt Parser: -196.78 MB
+- AGENT 2: Synthetic Data Generation: 14.96 MB
+- AGENT 3: EDA Analysis: 6.20 MB
+- AGENT 7: Configuration Agent: 0.15 MB
+- AGENT 4: PyCaret Agent (Classification): 140.53 MB
+- AGENT 5: Model Interpretation: -5.87 MB
+- AGENT 6: Business Rule Application: -6.22 MB
+Test case 'Diabetes Prediction - Full Configuration' completed successfully!
+Final State Keys: ['user_prompt', 'business_rule', 'ml_configuration', 'pipeline_id', 'agent_timings', 'agent_memory_usage', 'dataset_specification_json', 'synthetic_data_path', 'synthetic_data_df', 'target_column', 'dataset_name', 'eda_json_path', 'eda_json', 'model_path', 'model_plots_paths', 'model_metrics', 'pycaret_code', 'training_dataset_path', 'test_dataset_path', 'model_interpretation_json', 'modified_dataset_path', 'business_rule_explanation_json', 'final_ml_configuration', 'final_report_json', 'base_data_path', 'base_models_path', 'base_plots_path', 'task_type', 'data_characteristics', 'automl_config', 'model_artifact', 'evaluation_metrics', 'deployment_config', 'override_num_rows', 'initialize_paths', 'overall_duration', 'user_prompt_parser', 'synthetic_data_generation', 'eda_analysis', 'configuration', 'pycaret_model', 'model_interpretation', 'business_rules', 'report_generation']
+
+--- DEBUG: STATE CONTENT ANALYSIS ---
+synthetic_data_df: <class 'NoneType'> - Non-string type
+target_column: <class 'str'> - 
+synthetic_data_generation: <class 'dict'> - Non-string type
+
+--- AGENT 1: DATASET SPECIFICATION JSON ---
+{}
+
+--- AGENT 2: No synthetic data generated or DataFrame is empty. ---
+DEBUG: Available result.__dict__.keys(): ['user_prompt', 'business_rule', 'ml_configuration', 'pipeline_id', 'agent_timings', 'agent_memory_usage', 'dataset_specification_json', 'synthetic_data_path', 'synthetic_data_df', 'target_column', 'dataset_name', 'eda_json_path', 'eda_json', 'model_path', 'model_plots_paths', 'model_metrics', 'pycaret_code', 'training_dataset_path', 'test_dataset_path', 'model_interpretation_json', 'modified_dataset_path', 'business_rule_explanation_json', 'final_ml_configuration', 'final_report_json', 'base_data_path', 'base_models_path', 'base_plots_path', 'task_type', 'data_characteristics', 'automl_config', 'model_artifact', 'evaluation_metrics', 'deployment_config', 'override_num_rows', 'initialize_paths', 'overall_duration', 'user_prompt_parser', 'synthetic_data_generation', 'eda_analysis', 'configuration', 'pycaret_model', 'model_interpretation', 'business_rules', 'report_generation']
+DEBUG: synthetic_data_generation content type: <class 'dict'>
+
+--- AGENT 3: EDA JSON ---
+{}
+
+--- AGENT 7: FINAL ML CONFIGURATION ---
+{}
+
+--- AGENT 4: MODEL METRICS ---
+{}
+
+--- AGENT 4: MODEL PLOTS PATHS ---
+
+Model Saved At: 
+
+--- AGENT 5: MODEL INTERPRETATION JSON ---
+{}
+
+--- AGENT 6: BUSINESS RULE / MODEL EXPLANATION JSON ---
+{}
+
+--- AGENT 8: FINAL REPORT PATH ---
+Report saved to: N/A
+
+######################################################################
+END OF TEST CASE 1: Diabetes Prediction - Full Configuration
+######################################################################
+
+
+######################################################################
+STARTING TEST CASE 2: Fraud Detection - No ML Config
+######################################################################
+Adjusting synthetic data rows to: 100
+============================================================
+RUNNING TEST CASE: Fraud Detection - No ML Config
+============================================================
+Overriding dataset num_rows to: 100
+[Paths Initialized] Data: C:\Users\ChandraKalidindi\deep\test-xx\data
+[Paths Initialized] Models: C:\Users\ChandraKalidindi\deep\test-xx\models
+[Paths Initialized] Plots: C:\Users\ChandraKalidindi\deep\test-xx\models\plots
+[Paths Initialized] Data: C:\Users\ChandraKalidindi\deep\test-xx\data
+[Paths Initialized] Models: C:\Users\ChandraKalidindi\deep\test-xx\models
+[Paths Initialized] Plots: C:\Users\ChandraKalidindi\deep\test-xx\models\plots
+Overall Test Case Duration: 0.0040 seconds.
+AGENT 1: User Prompt Parser - Processing user request...
+AGENT 1: Successfully parsed prompt for classification task
+AGENT 1: Dataset will have 500 rows and 6 features
+AGENT 1: Domain identified as: finance
+AGENT 1: User Prompt Parser: Completed in 48.8242 seconds.
+AGENT 1: User Prompt Parser: Memory increase: 0.69 MB.
+Warning: Failed to capture PyCaret metrics (cannot import name 'get_metrics' from 'pycaret.utils.generic' (C:\Users\ChandraKalidindi\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pycaret\utils\generic.py))
+Overall Test Case Duration: 48.8282 seconds.
+AGENT 2: Synthetic Data Generation / Loading - Starting data process...
+AGENT 2: Synthetic data generated successfully with 500 rows and 7 columns.
+AGENT 2: Data saved to: C:\Users\ChandraKalidindi\deep\test-xx\data\finance_20251023_173841.csv
+AGENT 2: Identified target column: 'is_fraud'
+AGENT 2: DataFrame shape stored in state: (500, 7)
+AGENT 2: Synthetic Data Generation: Completed in 0.0882 seconds.
+AGENT 2: Synthetic Data Generation: Memory increase: 6.33 MB.
+Overall Test Case Duration: 48.9164 seconds.
+AGENT 3: EDA Analysis - Starting data exploration...
+AGENT 3: Successfully loaded data from C:\Users\ChandraKalidindi\deep\test-xx\data\finance_20251023_173841.csv
+AGENT 3: EDA analysis completed. Results saved to: C:\Users\ChandraKalidindi\deep\test-xx\data\finance_20251023_173841_eda.json
+AGENT 3: EDA Analysis: Completed in 0.1117 seconds.
+AGENT 3: EDA Analysis: Memory increase: 7.54 MB.
+Overall Test Case Duration: 49.0281 seconds.
+AGENT 7: Configuration Management - Setting up ML pipeline configuration...
+AGENT 7: No specific ML configuration provided by user. Using defaults.
+AGENT 7: Final ML Configuration to be passed to PyCaret: {
+  "task_type": "classification",
+  "model_type": null,
+  "session_id": 31205,
+  "data_setup_params": {},
+  "compare_models": true,
+  "n_top_models": 3,
+  "metrics": [
+    "Accuracy",
+    "AUC",
+    "Recall",
+    "Precision",
+    "F1"
+  ]
+}
+AGENT 7: Configuration Agent: Completed in 0.0000 seconds.
+AGENT 7: Configuration Agent: Memory increase: 0.02 MB.
+Overall Test Case Duration: 49.0281 seconds.
+AGENT 4: PyCaret ML Model - Starting model training process...
+AGENT 4: PyCaret Classification Setup complete for target 'is_fraud'.
+AGENT 4: Training dataset saved to: C:\Users\ChandraKalidindi\deep\test-xx\data\finance_20251023_173841_training.csv
+AGENT 4: Test dataset saved to: C:\Users\ChandraKalidindi\deep\test-xx\data\finance_20251023_173841_test.csv
+                                    Model  Accuracy     AUC  Recall   Prec.  \
+rf               Random Forest Classifier    0.5286  0.4923  0.0121  0.2000   
+nb                            Naive Bayes    0.5229  0.5000  0.0000  0.0000   
+dt               Decision Tree Classifier    0.5229  0.5000  0.0000  0.0000   
+ada                  Ada Boost Classifier    0.5229  0.5000  0.0000  0.0000   
+gbc          Gradient Boosting Classifier    0.5229  0.5000  0.0000  0.0000   
+lda          Linear Discriminant Analysis    0.5229  0.5000  0.0000  0.0000   
+lightgbm  Light Gradient Boosting Machine    0.5229  0.5530  0.0000  0.0000   
+dummy                    Dummy Classifier    0.5229  0.5000  0.0000  0.0000   
+svm                   SVM - Linear Kernel    0.5057  0.0000  0.3555  0.4364   
+knn                K Neighbors Classifier    0.5029  0.5025  0.4982  0.4714   
+et                 Extra Trees Classifier    0.4914  0.4932  0.1445  0.4075   
+lr                    Logistic Regression    0.4771  0.5038  0.2577  0.4108   
+qda       Quadratic Discriminant Analysis    0.4771  0.5000  1.0000  0.4771   
+ridge                    Ridge Classifier    0.4714  0.0000  0.2577  0.4051   
+
+              F1   Kappa     MCC  TT (Sec)  
+rf        0.0229  0.0128  0.0363     0.083  
+nb        0.0000  0.0000  0.0000     0.027  
+dt        0.0000  0.0000  0.0000     0.028  
+ada       0.0000  0.0000  0.0000     0.030  
+gbc       0.0000  0.0000  0.0000     0.039  
+lda       0.0000  0.0000  0.0000     0.028  
+lightgbm  0.0000  0.0000  0.0000     0.083  
+dummy     0.0000  0.0000  0.0000     0.028  
+svm       0.2772  0.0028  0.0147     0.041  
+knn       0.4767  0.0052  0.0049     0.339  
+et        0.2060 -0.0478 -0.0619     0.071  
+lr        0.3122 -0.0667 -0.0762     0.064  
+qda       0.6459  0.0000  0.0000     0.027  
+ridge     0.3102 -0.0775 -0.0865     0.026  
+AGENT 4: Compared classification models. Best model identified.
+AGENT 4: Classification Model Metrics: {'Model': 'Random Forest Classifier', 'Accuracy': 0.5286, 'AUC': 0.4923, 'Recall': 0.0121, 'Prec.': 0.2, 'F1': 0.0229, 'Kappa': 0.0128, 'MCC': 0.0363, 'TT (Sec)': 0.083}
+AGENT 4 DEBUG: Model object type: <class 'sklearn.ensemble._forest.RandomForestClassifier'>
+AGENT 4 DEBUG: Model object attributes: ['__abstractmethods__', '__annotations__', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__setstate__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_abc_impl', '_check_feature_names', '_check_n_features', '_compute_oob_predictions', '_estimator_type', '_get_oob_predictions', '_get_param_names', '_get_tags', '_make_estimator', '_more_tags', '_parameter_constraints', '_repr_html_', '_repr_html_inner', '_repr_mimebundle_', '_required_parameters', '_set_oob_score_and_attributes', '_validate_X_predict', '_validate_data', '_validate_estimator', '_validate_params', '_validate_y_class_weight', 'apply', 'base_estimator', 'base_estimator_', 'bootstrap', 'ccp_alpha', 'class_weight', 'classes_', 'criterion', 'decision_path', 'estimator', 'estimator_', 'estimator_params', 'estimators_', 'feature_importances_', 'feature_names_in_', 'fit', 'get_params', 'max_depth', 'max_features', 'max_leaf_nodes', 'max_samples', 'min_impurity_decrease', 'min_samples_leaf', 'min_samples_split', 'min_weight_fraction_leaf', 'n_classes_', 'n_estimators', 'n_features_in_', 'n_jobs', 'n_outputs_', 'oob_score', 'predict', 'predict_log_proba', 'predict_proba', 'random_state', 'score', 'set_params', 'verbose', 'warm_start']
+AGENT 4 DEBUG: Model save path: C:\Users\ChandraKalidindi\deep\test-xx\models\finance_20251023_173841_model
+AGENT 4 DEBUG: Model has predict method: True
+Transformation Pipeline and Model Successfully Saved
+AGENT 4: Classification model saved to: C:\Users\ChandraKalidindi\deep\test-xx\models\finance_20251023_173841_model.pkl
+Warning: Could not extract metrics via pull(): 'charmap' codec can't encode character '\u2705' in position 0: character maps to <undefined>
+AGENT 4 DEBUG: Model file exists after saving: C:\Users\ChandraKalidindi\deep\test-xx\models\finance_20251023_173841_model.pkl
+AGENT 4 DEBUG: Model file size: 261012 bytes
+AGENT 4 DEBUG: Loaded model type: <class 'numpy.ndarray'>
+AGENT 4 DEBUG: Loaded model has predict: False
+AGENT 4 Warning: Could not generate PR curve plot for classification: PyCaret did not save PR curve plot to expected temp path: C:\Users\ChandraKalidindi\deep\test-xx\PR Curve.png
+AGENT 4: Confusion Matrix plot saved to: C:\Users\ChandraKalidindi\deep\test-xx\models\plots\finance_20251023_173841_confusion_matrix.png
+AGENT 4: Feature Importance plot saved to: C:\Users\ChandraKalidindi\deep\test-xx\models\plots\finance_20251023_173841_feature_importance.png
+AGENT 4: PyCaret Agent (Classification): Completed in 15.5296 seconds.
+AGENT 4: PyCaret Agent (Classification): Memory increase: 109.49 MB.
+Overall Test Case Duration: 64.5592 seconds.
+AGENT 5: Model Interpretation - Analyzing model performance...
+AGENT 5: JSON parsing error from LLM response: Expecting ',' delimiter: line 13 column 5 (char 1205)
+AGENT 5: Raw LLM response: {
+    "performance_summary": "The Ridge Classifier shows good performance with high accuracy (0.4714) and low F1 score (-0.3102).",
+    "key_insights": [
+        "The model achieves high accuracy due to its ability to effectively capture the underlying relationships between features and the target variable.",
+        "However, the F1 score indicates a trade-off between precision and recall, which is important to consider for fraud detection tasks where both false positives and negatives need to be minimized.",
+        "The feature importance plot reveals that the most important features for fraud detection are transaction amount, merchant category, and user location.",
+        "The PR curve indicates that the model achieves a good balance between precision and recall, indicating its ability to accurately detect fraudulent transactions while minimizing false positives."
+    ],
+    "recommendations": [
+        "Further feature engineering could be explored to enhance the model's performance.",
+        "Investigating different ensemble methods could potentially improve the F1 score.",
+        "Regularization techniques could be used to address overfitting and improvegeneralizability."
+    }
+}
+AGENT 5: Model Interpretation: Completed in 41.5584 seconds.
+AGENT 5: Model Interpretation: Memory increase: -1.93 MB.
+Overall Test Case Duration: 106.1188 seconds.
+AGENT 6: Business Rule Application / Model Decision Explanation - Starting...
+AGENT 6: Business rule detected: 'Transactions from certain high-risk countries (e.g., 'Nigeria', 'Russia') with amounts > $1000 should be flagged as potential fraud'. Attempting to apply...
+AGENT 6: Raw LLM response for business rule: ```python
+import pandas as pd
+
+# Define the business rule
+rule_description = "Transactions from certain high-risk countries (e.g., 'Nigeria', 'Russia') with amounts > $1000 should be flagged as potential fraud"
+
+# Define the data
+data = {
+    "transaction_id": ["bad", "service", "school", "tell", "hear"],
+    "amount": ["person", "season", "financial", "now", "wait"],
+    "merchant_category": ["head", "thank", "major", "little", "area"],
+    "user_location": ["Actually dark anyone letter tell teacher.", "Current form science process the around whose.", "Candidate arm maintain artist.", "Join point beyond.", "Away hotel dog these artist happy."],
+    "time_of_day": ["investment", "recognize", "point", "room", "nature"],
+    "previous_transactions_count": ["face", "with", "seem", "itself", "both"],
+    "is_fraud": [0, 1, 0, 0, 1]
+}
+
+# Apply the business rule
+data["is_fraud"] = data["transaction_id"].isin(["Nigeria", "Russia"]) & (data["amount"] > 1000)
+
+# Generate the JSON output
+output = {
+    "rule_description": rule_description,
+    "suggested_python_code": "df['is_fraud'] = df['transaction_id'].isin(['Nigeria', 'Russia']) & (df['amount'] > 1000)",
+    "expected_impact": "The 'is_fraud' column will be populated with True for transactions from Nigeria and Russia with amounts greater than 1000."
+}
+
+# Print the JSON output
+print(output)
+```
+AGENT 6: JSON parsing error from LLM for business rule interpretation: Expecting value: line 1 column 1 (char 0)
+AGENT 6: Business rule/model explanation saved to file: data\inferences\finance_20251023_173841_business_rule_explanation.json
+AGENT 6: Business Rule Application: Completed in 61.8348 seconds.
+AGENT 6: Business Rule Application: Memory increase: 0.01 MB.
+Overall Test Case Duration: 167.9535 seconds.
+AGENT 8: Report Generation - Compiling final report...
+AGENT 8: Final report content generated successfully.
+AGENT 8: Final report saved to file: C:\Users\ChandraKalidindi\deep\test-xx\reports\finance_20251023_173841_final_report.md
+REPORT FORMATTER AGENT: Completed in 123.3156 seconds.
+Overall Test Case Duration: 291.2692 seconds.
+
+============================================================
+RESULTS SUMMARY FOR TEST CASE: Fraud Detection - No ML Config
+============================================================
+
+--- DEBUG: STATE CONTENT ANALYSIS ---
+user_prompt: str - I need a credit card fraud detection dataset with transaction amounts, merchant categories, user demographics, and transaction patterns. The target should be 'is_fraud'. Include columns for 'transaction_id', 'amount' (10-5000), 'merchant_category' (e.g., 'Groceries', 'Electronics', 'Travel'), 'user_location', 'time_of_day' (hourly), and 'previous_transactions_count' (0-50).
+business_rule: str - Transactions from certain high-risk countries (e.g., 'Nigeria', 'Russia') with amounts > $1000 should be flagged as potential fraud
+ml_configuration: None
+pipeline_id: str - 
+agent_timings: list - Length: 8
+
+--- MEMORY USAGE TRACKING ---
+Agent: AGENT 1: User Prompt Parser
+  Memory Increase: 0.69 MB
+Agent: AGENT 2: Synthetic Data Generation
+  Memory Increase: 6.33 MB
+Agent: AGENT 3: EDA Analysis
+  Memory Increase: 7.54 MB
+Agent: AGENT 7: Configuration Agent
+  Memory Increase: 0.02 MB
+Agent: AGENT 4: PyCaret Agent (Classification)
+  Memory Increase: 109.49 MB
+Agent: AGENT 5: Model Interpretation
+  Memory Increase: -1.93 MB
+Agent: AGENT 6: Business Rule Application
+  Memory Increase: 0.01 MB
+dataset_specification_json: dict - Keys: []
+synthetic_data_path: str - 
+synthetic_data_df: None
+target_column: str - 
+dataset_name: str - 
+eda_json_path: str - 
+eda_json: dict - Keys: []
+model_path: str - 
+model_plots_paths: dict - Keys: []
+model_metrics: dict - Keys: []
+pycaret_code: str - 
+training_dataset_path: str - 
+test_dataset_path: str - 
+model_interpretation_json: dict - Keys: []
+modified_dataset_path: str - 
+business_rule_explanation_json: dict - Keys: []
+final_ml_configuration: dict - Keys: []
+final_report_json: dict - Keys: []
+base_data_path: str - C:\Users\ChandraKalidindi\deep\test-xx\data
+base_models_path: str - C:\Users\ChandraKalidindi\deep\test-xx\models
+base_plots_path: str - C:\Users\ChandraKalidindi\deep\test-xx\models\plots
+task_type: str - 
+data_characteristics: dict - Keys: []
+automl_config: dict - Keys: []
+model_artifact: str - 
+evaluation_metrics: dict - Keys: []
+deployment_config: dict - Keys: []
+
+--- PERFORMANCE METRICS ---
+Agent Timings:
+- AGENT 1: User Prompt Parser: 48.82 seconds
+- AGENT 2: Synthetic Data Generation: 0.09 seconds
+- AGENT 3: EDA Analysis: 0.11 seconds
+- AGENT 7: Configuration Agent: 0.00 seconds
+- AGENT 4: PyCaret Agent (Classification): 15.53 seconds
+- AGENT 5: Model Interpretation: 41.56 seconds
+- AGENT 6: Business Rule Application: 61.83 seconds
+- AGENT 8: Report Formatter: 123.32 seconds
+
+Agent Memory Usage:
+- AGENT 1: User Prompt Parser: 0.69 MB
+- AGENT 2: Synthetic Data Generation: 6.33 MB
+- AGENT 3: EDA Analysis: 7.54 MB
+- AGENT 7: Configuration Agent: 0.02 MB
+- AGENT 4: PyCaret Agent (Classification): 109.49 MB
+- AGENT 5: Model Interpretation: -1.93 MB
+- AGENT 6: Business Rule Application: 0.01 MB
+Test case 'Fraud Detection - No ML Config' completed successfully!
+Final State Keys: ['user_prompt', 'business_rule', 'ml_configuration', 'pipeline_id', 'agent_timings', 'agent_memory_usage', 'dataset_specification_json', 'synthetic_data_path', 'synthetic_data_df', 'target_column', 'dataset_name', 'eda_json_path', 'eda_json', 'model_path', 'model_plots_paths', 'model_metrics', 'pycaret_code', 'training_dataset_path', 'test_dataset_path', 'model_interpretation_json', 'modified_dataset_path', 'business_rule_explanation_json', 'final_ml_configuration', 'final_report_json', 'base_data_path', 'base_models_path', 'base_plots_path', 'task_type', 'data_characteristics', 'automl_config', 'model_artifact', 'evaluation_metrics', 'deployment_config', 'override_num_rows', 'initialize_paths', 'overall_duration', 'user_prompt_parser', 'synthetic_data_generation', 'eda_analysis', 'configuration', 'pycaret_model', 'model_interpretation', 'business_rules', 'report_generation']
+
+--- DEBUG: STATE CONTENT ANALYSIS ---
+synthetic_data_df: <class 'NoneType'> - Non-string type
+target_column: <class 'str'> - 
+synthetic_data_generation: <class 'dict'> - Non-string type
+
+--- AGENT 1: DATASET SPECIFICATION JSON ---
+{}
+
+--- AGENT 2: No synthetic data generated or DataFrame is empty. ---
+DEBUG: Available result.__dict__.keys(): ['user_prompt', 'business_rule', 'ml_configuration', 'pipeline_id', 'agent_timings', 'agent_memory_usage', 'dataset_specification_json', 'synthetic_data_path', 'synthetic_data_df', 'target_column', 'dataset_name', 'eda_json_path', 'eda_json', 'model_path', 'model_plots_paths', 'model_metrics', 'pycaret_code', 'training_dataset_path', 'test_dataset_path', 'model_interpretation_json', 'modified_dataset_path', 'business_rule_explanation_json', 'final_ml_configuration', 'final_report_json', 'base_data_path', 'base_models_path', 'base_plots_path', 'task_type', 'data_characteristics', 'automl_config', 'model_artifact', 'evaluation_metrics', 'deployment_config', 'override_num_rows', 'initialize_paths', 'overall_duration', 'user_prompt_parser', 'synthetic_data_generation', 'eda_analysis', 'configuration', 'pycaret_model', 'model_interpretation', 'business_rules', 'report_generation']
+DEBUG: synthetic_data_generation content type: <class 'dict'>
+
+--- AGENT 3: EDA JSON ---
+{}
+
+--- AGENT 7: FINAL ML CONFIGURATION ---
+{}
+
+--- AGENT 4: MODEL METRICS ---
+{}
+
+--- AGENT 4: MODEL PLOTS PATHS ---
+
+Model Saved At: 
+
+--- AGENT 5: MODEL INTERPRETATION JSON ---
+{}
+
+--- AGENT 6: BUSINESS RULE / MODEL EXPLANATION JSON ---
+{}
+
+--- AGENT 8: FINAL REPORT PATH ---
+Report saved to: N/A
+
+######################################################################
+END OF TEST CASE 2: Fraud Detection - No ML Config
+######################################################################
+
+
+######################################################################
+STARTING TEST CASE 3: Customer Clustering - Pre-existing Data
+######################################################################
+Using pre-existing dataset: data/customer_clustering.csv
+============================================================
+RUNNING TEST CASE: Customer Clustering - Pre-existing Data
+============================================================
+Overriding dataset num_rows to: 100
+[Paths Initialized] Data: C:\Users\ChandraKalidindi\deep\test-xx\data
+[Paths Initialized] Models: C:\Users\ChandraKalidindi\deep\test-xx\models
+[Paths Initialized] Plots: C:\Users\ChandraKalidindi\deep\test-xx\models\plots
+[Paths Initialized] Data: C:\Users\ChandraKalidindi\deep\test-xx\data
+[Paths Initialized] Models: C:\Users\ChandraKalidindi\deep\test-xx\models
+[Paths Initialized] Plots: C:\Users\ChandraKalidindi\deep\test-xx\models\plots
+Overall Test Case Duration: 0.0035 seconds.
+AGENT 1: User Prompt Parser - Processing user request...
+AGENT 1: Unexpected error: 'NoneType' object has no attribute 'lower'
+AGENT 1: User Prompt Parser: Completed in 26.2257 seconds.
+AGENT 1: User Prompt Parser: Memory increase: -0.20 MB.
+Overall Test Case Duration: 26.2302 seconds.
+AGENT 2: Synthetic Data Generation / Loading - Starting data process...
+Test case 'Customer Clustering - Pre-existing Data' failed with error: 'NoneType' object has no attribute 'lower'
+
+============================================================
+RESULTS SUMMARY FOR TEST CASE: Customer Clustering - Pre-existing Data
+============================================================
+
+--- DEBUG: STATE CONTENT ANALYSIS ---
+user_prompt: None
+business_rule: None
+ml_configuration: dict - Keys: ['task_type', 'n_clusters']
+pipeline_id: str - 
+agent_timings: list - Length: 1
+
+--- MEMORY USAGE TRACKING ---
+Agent: AGENT 1: User Prompt Parser
+  Memory Increase: -0.20 MB
+dataset_specification_json: dict - Keys: []
+synthetic_data_path: str - 
+synthetic_data_df: None
+target_column: str - 
+dataset_name: str - 
+eda_json_path: str - 
+eda_json: dict - Keys: []
+model_path: str - 
+model_plots_paths: dict - Keys: []
+model_metrics: dict - Keys: []
+pycaret_code: str - 
+training_dataset_path: str - 
+test_dataset_path: str - 
+model_interpretation_json: dict - Keys: []
+modified_dataset_path: str - 
+business_rule_explanation_json: dict - Keys: []
+final_ml_configuration: dict - Keys: []
+final_report_json: dict - Keys: []
+base_data_path: str - C:\Users\ChandraKalidindi\deep\test-xx\data
+base_models_path: str - C:\Users\ChandraKalidindi\deep\test-xx\models
+base_plots_path: str - C:\Users\ChandraKalidindi\deep\test-xx\models\plots
+task_type: str - 
+data_characteristics: dict - Keys: []
+automl_config: dict - Keys: []
+model_artifact: str - 
+evaluation_metrics: dict - Keys: []
+deployment_config: dict - Keys: []
+
+--- PERFORMANCE METRICS ---
+Agent Timings:
+- AGENT 1: User Prompt Parser: 26.23 seconds
+
+Agent Memory Usage:
+- AGENT 1: User Prompt Parser: -0.20 MB
+Test case 'Customer Clustering - Pre-existing Data' failed with error: 'NoneType' object has no attribute 'lower'
+
+######################################################################
+END OF TEST CASE 3: Customer Clustering - Pre-existing Data
+######################################################################
+
+
+######################################################################
+STARTING TEST CASE 4: Simple Classification - Minimal Input
+######################################################################
+Adjusting synthetic data rows to: 100
+============================================================
+RUNNING TEST CASE: Simple Classification - Minimal Input
+============================================================
+Overriding dataset num_rows to: 100
+[Paths Initialized] Data: C:\Users\ChandraKalidindi\deep\test-xx\data
+[Paths Initialized] Models: C:\Users\ChandraKalidindi\deep\test-xx\models
+[Paths Initialized] Plots: C:\Users\ChandraKalidindi\deep\test-xx\models\plots
+[Paths Initialized] Data: C:\Users\ChandraKalidindi\deep\test-xx\data
+[Paths Initialized] Models: C:\Users\ChandraKalidindi\deep\test-xx\models
+[Paths Initialized] Plots: C:\Users\ChandraKalidindi\deep\test-xx\models\plots
+Overall Test Case Duration: 0.0040 seconds.
+AGENT 1: User Prompt Parser - Processing user request...
+AGENT 1: Successfully parsed prompt for classification task
+AGENT 1: Dataset will have 250 rows and 4 features
+AGENT 1: Domain identified as: healthcare
+AGENT 1: User Prompt Parser: Completed in 40.7301 seconds.
+AGENT 1: User Prompt Parser: Memory increase: -0.49 MB.
+Warning: Failed to capture PyCaret metrics (cannot import name 'get_metrics' from 'pycaret.utils.generic' (C:\Users\ChandraKalidindi\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pycaret\utils\generic.py))
+Overall Test Case Duration: 40.7341 seconds.
+AGENT 2: Synthetic Data Generation / Loading - Starting data process...
+AGENT 2: Synthetic data generated successfully with 250 rows and 5 columns.
+AGENT 2: Data saved to: C:\Users\ChandraKalidindi\deep\test-xx\data\healthcare_20251023_174350.csv
+AGENT 2: Identified target column: 'condition'
+AGENT 2: DataFrame shape stored in state: (250, 5)
+AGENT 2: Synthetic Data Generation: Completed in 0.0076 seconds.
+AGENT 2: Synthetic Data Generation: Memory increase: 0.39 MB.
+Overall Test Case Duration: 40.7418 seconds.
+AGENT 3: EDA Analysis - Starting data exploration...
+AGENT 3: Successfully loaded data from C:\Users\ChandraKalidindi\deep\test-xx\data\healthcare_20251023_174350.csv
+AGENT 3: EDA analysis completed. Results saved to: C:\Users\ChandraKalidindi\deep\test-xx\data\healthcare_20251023_174350_eda.json
+AGENT 3: EDA Analysis: Completed in 0.0472 seconds.
+AGENT 3: EDA Analysis: Memory increase: 1.02 MB.
+Overall Test Case Duration: 40.7890 seconds.
+AGENT 7: Configuration Management - Setting up ML pipeline configuration...
+AGENT 7: No specific ML configuration provided by user. Using defaults.
+AGENT 7: Final ML Configuration to be passed to PyCaret: {
+  "task_type": "classification",
+  "model_type": null,
+  "session_id": 74049,
+  "data_setup_params": {},
+  "compare_models": true,
+  "n_top_models": 3,
+  "metrics": [
+    "Accuracy",
+    "AUC",
+    "Recall",
+    "Precision",
+    "F1"
+  ]
+}
+AGENT 7: Configuration Agent: Completed in 0.0000 seconds.
+AGENT 7: Configuration Agent: Memory increase: 0.00 MB.
+Overall Test Case Duration: 40.7890 seconds.
+AGENT 4: PyCaret ML Model - Starting model training process...
+AGENT 4: PyCaret Classification Setup complete for target 'condition'.
+AGENT 4: Training dataset saved to: C:\Users\ChandraKalidindi\deep\test-xx\data\healthcare_20251023_174350_training.csv
+AGENT 4: Test dataset saved to: C:\Users\ChandraKalidindi\deep\test-xx\data\healthcare_20251023_174350_test.csv
+                                    Model  Accuracy     AUC  Recall   Prec.  \
+dummy                    Dummy Classifier    0.5029  0.5000  0.0000  0.0000   
+knn                K Neighbors Classifier    0.4977  0.4779  0.3931  0.4929   
+dt               Decision Tree Classifier    0.4967  0.5000  0.8611  0.4966   
+ada                  Ada Boost Classifier    0.4967  0.4890  0.8611  0.4966   
+svm                   SVM - Linear Kernel    0.4856  0.0000  0.3222  0.1841   
+gbc          Gradient Boosting Classifier    0.4850  0.4909  0.8361  0.4855   
+ridge                    Ridge Classifier    0.4807  0.0000  0.3972  0.4853   
+lightgbm  Light Gradient Boosting Machine    0.4804  0.4869  0.3542  0.4082   
+lda          Linear Discriminant Analysis    0.4797  0.4748  0.4000  0.4837   
+qda       Quadratic Discriminant Analysis    0.4791  0.4617  0.6181  0.4855   
+lr                    Logistic Regression    0.4752  0.4550  0.4056  0.4553   
+nb                            Naive Bayes    0.4739  0.4796  0.2236  0.4775   
+rf               Random Forest Classifier    0.4739  0.4212  0.1736  0.5186   
+et                 Extra Trees Classifier    0.4680  0.4862  0.3097  0.5428   
+
+              F1   Kappa     MCC  TT (Sec)  
+dummy     0.0000  0.0000  0.0000     0.023  
+knn       0.4306 -0.0035 -0.0037     0.030  
+dt        0.6281  0.0014  0.0056     0.022  
+ada       0.6281  0.0014  0.0056     0.056  
+svm       0.2232 -0.0111 -0.0124     0.023  
+gbc       0.6120 -0.0235 -0.0171     0.039  
+ridge     0.4061 -0.0300 -0.0332     0.023  
+lightgbm  0.3331 -0.0482 -0.0749     0.072  
+lda       0.3954 -0.0252 -0.0322     0.023  
+qda       0.5165 -0.0421 -0.0463     0.022  
+lr        0.4202 -0.0461 -0.0560     0.023  
+nb        0.2787 -0.0461 -0.0454     0.023  
+rf        0.2401 -0.0513 -0.0373     0.079  
+et        0.3211 -0.0664 -0.0578     0.064  
+AGENT 4: Compared classification models. Best model identified.
+AGENT 4: Classification Model Metrics: {'Model': 'Dummy Classifier', 'Accuracy': 0.5029, 'AUC': 0.5, 'Recall': 0.0, 'Prec.': 0.0, 'F1': 0.0, 'Kappa': 0.0, 'MCC': 0.0, 'TT (Sec)': 0.023}
+AGENT 4 DEBUG: Model object type: <class 'sklearn.dummy.DummyClassifier'>
+AGENT 4 DEBUG: Model object attributes: ['__annotations__', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__setstate__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_check_feature_names', '_check_n_features', '_estimator_type', '_get_param_names', '_get_tags', '_more_tags', '_parameter_constraints', '_repr_html_', '_repr_html_inner', '_repr_mimebundle_', '_strategy', '_validate_data', '_validate_params', 'class_prior_', 'classes_', 'constant', 'fit', 'get_params', 'n_classes_', 'n_outputs_', 'predict', 'predict_log_proba', 'predict_proba', 'random_state', 'score', 'set_params', 'sparse_output_', 'strategy']
+AGENT 4 DEBUG: Model save path: C:\Users\ChandraKalidindi\deep\test-xx\models\healthcare_20251023_174350_model
+AGENT 4 DEBUG: Model has predict method: True
+Transformation Pipeline and Model Successfully Saved
+AGENT 4: Classification model saved to: C:\Users\ChandraKalidindi\deep\test-xx\models\healthcare_20251023_174350_model.pkl
+Warning: Could not extract metrics via pull(): 'charmap' codec can't encode character '\u2705' in position 0: character maps to <undefined>
+AGENT 4 DEBUG: Model file exists after saving: C:\Users\ChandraKalidindi\deep\test-xx\models\healthcare_20251023_174350_model.pkl
+AGENT 4 DEBUG: Model file size: 43815 bytes
+AGENT 4 DEBUG: Loaded model type: <class 'numpy.ndarray'>
+AGENT 4 DEBUG: Loaded model has predict: False
+AGENT 4 Warning: Could not generate PR curve plot for classification: PyCaret did not save PR curve plot to expected temp path: C:\Users\ChandraKalidindi\deep\test-xx\PR Curve.png
+AGENT 4: Confusion Matrix plot saved to: C:\Users\ChandraKalidindi\deep\test-xx\models\plots\healthcare_20251023_174350_confusion_matrix.png
+AGENT 4 Warning: Could not generate Feature Importance plot for classification: Feature Importance and RFE plots not available for estimators that doesnt support coef_ or feature_importances_ attribute.
+AGENT 4: PyCaret Agent (Classification): Completed in 9.6841 seconds.
+AGENT 4: PyCaret Agent (Classification): Memory increase: 7.61 MB.
+Overall Test Case Duration: 50.4741 seconds.
+AGENT 5: Model Interpretation - Analyzing model performance...
+AGENT 5: JSON parsing error from LLM response: Expecting value: line 7 column 5 (char 442)
+AGENT 5: Raw LLM response: {
+    "performance_summary": "The Extra Trees Classifier shows good performance with high accuracy (0.468) and low F1 score (-0.0664).",
+    "key_insights": [
+        "High Accuracy indicates a good proportion of correct predictions.",
+        "Low F1 score suggests the model misses some positive cases, potentially leading to false negatives.",
+        "The model's ability to balance precision and recall is evident in the PR curve.",
+    ],
+    "recommendations": [
+        "Consider feature engineering to add more relevant features.",
+        "Evaluate the model on a larger dataset with balanced classes.",
+        "Use ensemble methods to improve the model's performance."
+    ]
+}
+AGENT 5: Model Interpretation: Completed in 33.1693 seconds.
+AGENT 5: Model Interpretation: Memory increase: -4.49 MB.
+Overall Test Case Duration: 83.6434 seconds.
+AGENT 6: Business Rule Application / Model Decision Explanation - Starting...
+AGENT 6: No business rule provided. Explaining ML model decisions...
+AGENT 6: JSON parsing error from LLM for model decision explanation: Expecting value: line 1 column 1 (char 0)
+AGENT 6: Business rule/model explanation saved to file: data\inferences\healthcare_20251023_174350_business_rule_explanation.json
+AGENT 6: Business Rule Application: Completed in 40.4954 seconds.
+AGENT 6: Business Rule Application: Memory increase: 0.05 MB.
+Overall Test Case Duration: 124.1387 seconds.
+AGENT 8: Report Generation - Compiling final report...
+AGENT 8: Final report content generated successfully.
+AGENT 8: Final report saved to file: C:\Users\ChandraKalidindi\deep\test-xx\reports\healthcare_20251023_174350_final_report.md
+REPORT FORMATTER AGENT: Completed in 96.8741 seconds.
+Overall Test Case Duration: 221.0149 seconds.
+
+============================================================
+RESULTS SUMMARY FOR TEST CASE: Simple Classification - Minimal Input
+============================================================
+
+--- DEBUG: STATE CONTENT ANALYSIS ---
+user_prompt: str - I need you to create a dataset for binary classification, around 250 rows.
+business_rule: None
+ml_configuration: None
+pipeline_id: str - 
+agent_timings: list - Length: 8
+
+--- MEMORY USAGE TRACKING ---
+Agent: AGENT 1: User Prompt Parser
+  Memory Increase: -0.49 MB
+Agent: AGENT 2: Synthetic Data Generation
+  Memory Increase: 0.39 MB
+Agent: AGENT 3: EDA Analysis
+  Memory Increase: 1.02 MB
+Agent: AGENT 7: Configuration Agent
+  Memory Increase: 0.00 MB
+Agent: AGENT 4: PyCaret Agent (Classification)
+  Memory Increase: 7.61 MB
+Agent: AGENT 5: Model Interpretation
+  Memory Increase: -4.49 MB
+Agent: AGENT 6: Business Rule Application
+  Memory Increase: 0.05 MB
+dataset_specification_json: dict - Keys: []
+synthetic_data_path: str - 
+synthetic_data_df: None
+target_column: str - 
+dataset_name: str - 
+eda_json_path: str - 
+eda_json: dict - Keys: []
+model_path: str - 
+model_plots_paths: dict - Keys: []
+model_metrics: dict - Keys: []
+pycaret_code: str - 
+training_dataset_path: str - 
+test_dataset_path: str - 
+model_interpretation_json: dict - Keys: []
+modified_dataset_path: str - 
+business_rule_explanation_json: dict - Keys: []
+final_ml_configuration: dict - Keys: []
+final_report_json: dict - Keys: []
+base_data_path: str - C:\Users\ChandraKalidindi\deep\test-xx\data
+base_models_path: str - C:\Users\ChandraKalidindi\deep\test-xx\models
+base_plots_path: str - C:\Users\ChandraKalidindi\deep\test-xx\models\plots
+task_type: str - 
+data_characteristics: dict - Keys: []
+automl_config: dict - Keys: []
+model_artifact: str - 
+evaluation_metrics: dict - Keys: []
+deployment_config: dict - Keys: []
+
+--- PERFORMANCE METRICS ---
+Agent Timings:
+- AGENT 1: User Prompt Parser: 40.73 seconds
+- AGENT 2: Synthetic Data Generation: 0.01 seconds
+- AGENT 3: EDA Analysis: 0.05 seconds
+- AGENT 7: Configuration Agent: 0.00 seconds
+- AGENT 4: PyCaret Agent (Classification): 9.68 seconds
+- AGENT 5: Model Interpretation: 33.17 seconds
+- AGENT 6: Business Rule Application: 40.50 seconds
+- AGENT 8: Report Formatter: 96.87 seconds
+
+Agent Memory Usage:
+- AGENT 1: User Prompt Parser: -0.49 MB
+- AGENT 2: Synthetic Data Generation: 0.39 MB
+- AGENT 3: EDA Analysis: 1.02 MB
+- AGENT 7: Configuration Agent: 0.00 MB
+- AGENT 4: PyCaret Agent (Classification): 7.61 MB
+- AGENT 5: Model Interpretation: -4.49 MB
+- AGENT 6: Business Rule Application: 0.05 MB
+Test case 'Simple Classification - Minimal Input' completed successfully!
+Final State Keys: ['user_prompt', 'business_rule', 'ml_configuration', 'pipeline_id', 'agent_timings', 'agent_memory_usage', 'dataset_specification_json', 'synthetic_data_path', 'synthetic_data_df', 'target_column', 'dataset_name', 'eda_json_path', 'eda_json', 'model_path', 'model_plots_paths', 'model_metrics', 'pycaret_code', 'training_dataset_path', 'test_dataset_path', 'model_interpretation_json', 'modified_dataset_path', 'business_rule_explanation_json', 'final_ml_configuration', 'final_report_json', 'base_data_path', 'base_models_path', 'base_plots_path', 'task_type', 'data_characteristics', 'automl_config', 'model_artifact', 'evaluation_metrics', 'deployment_config', 'override_num_rows', 'initialize_paths', 'overall_duration', 'user_prompt_parser', 'synthetic_data_generation', 'eda_analysis', 'configuration', 'pycaret_model', 'model_interpretation', 'business_rules', 'report_generation']
+
+--- DEBUG: STATE CONTENT ANALYSIS ---
+synthetic_data_df: <class 'NoneType'> - Non-string type
+target_column: <class 'str'> - 
+synthetic_data_generation: <class 'dict'> - Non-string type
+
+--- AGENT 1: DATASET SPECIFICATION JSON ---
+{}
+
+--- AGENT 2: No synthetic data generated or DataFrame is empty. ---
+DEBUG: Available result.__dict__.keys(): ['user_prompt', 'business_rule', 'ml_configuration', 'pipeline_id', 'agent_timings', 'agent_memory_usage', 'dataset_specification_json', 'synthetic_data_path', 'synthetic_data_df', 'target_column', 'dataset_name', 'eda_json_path', 'eda_json', 'model_path', 'model_plots_paths', 'model_metrics', 'pycaret_code', 'training_dataset_path', 'test_dataset_path', 'model_interpretation_json', 'modified_dataset_path', 'business_rule_explanation_json', 'final_ml_configuration', 'final_report_json', 'base_data_path', 'base_models_path', 'base_plots_path', 'task_type', 'data_characteristics', 'automl_config', 'model_artifact', 'evaluation_metrics', 'deployment_config', 'override_num_rows', 'initialize_paths', 'overall_duration', 'user_prompt_parser', 'synthetic_data_generation', 'eda_analysis', 'configuration', 'pycaret_model', 'model_interpretation', 'business_rules', 'report_generation']
+DEBUG: synthetic_data_generation content type: <class 'dict'>
+
+--- AGENT 3: EDA JSON ---
+{}
+
+--- AGENT 7: FINAL ML CONFIGURATION ---
+{}
+
+--- AGENT 4: MODEL METRICS ---
+{}
+
+--- AGENT 4: MODEL PLOTS PATHS ---
+
+Model Saved At: 
+
+--- AGENT 5: MODEL INTERPRETATION JSON ---
+{}
+
+--- AGENT 6: BUSINESS RULE / MODEL EXPLANATION JSON ---
+{}
+
+--- AGENT 8: FINAL REPORT PATH ---
+Report saved to: N/A
+
+######################################################################
+END OF TEST CASE 4: Simple Classification - Minimal Input
+######################################################################
+
+
+######################################################################
+STARTING TEST CASE 5: Material Strength Prediction - Regression
+######################################################################
+Adjusting synthetic data rows to: 100
+============================================================
+RUNNING TEST CASE: Material Strength Prediction - Regression
+============================================================
+Overriding dataset num_rows to: 100
+[Paths Initialized] Data: C:\Users\ChandraKalidindi\deep\test-xx\data
+[Paths Initialized] Models: C:\Users\ChandraKalidindi\deep\test-xx\models
+[Paths Initialized] Plots: C:\Users\ChandraKalidindi\deep\test-xx\models\plots
+[Paths Initialized] Data: C:\Users\ChandraKalidindi\deep\test-xx\data
+[Paths Initialized] Models: C:\Users\ChandraKalidindi\deep\test-xx\models
+[Paths Initialized] Plots: C:\Users\ChandraKalidindi\deep\test-xx\models\plots
+Overall Test Case Duration: 0.0060 seconds.
+AGENT 1: User Prompt Parser - Processing user request...
+AGENT 1: Successfully parsed prompt for regression task
+AGENT 1: Dataset will have 350 rows and 5 features
+AGENT 1: Domain identified as: engineering
+AGENT 1: User Prompt Parser: Completed in 53.4605 seconds.
+AGENT 1: User Prompt Parser: Memory increase: -0.67 MB.
+Warning: Failed to capture PyCaret metrics (cannot import name 'get_metrics' from 'pycaret.utils.generic' (C:\Users\ChandraKalidindi\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pycaret\utils\generic.py))
+Overall Test Case Duration: 53.4672 seconds.
+AGENT 2: Synthetic Data Generation / Loading - Starting data process...
+AGENT 2: Synthetic data generated successfully with 350 rows and 5 columns.
+AGENT 2: Data saved to: C:\Users\ChandraKalidindi\deep\test-xx\data\engineering_20251023_174744.csv
+AGENT 2: Identified target column: 'tensile_strength'
+AGENT 2: DataFrame shape stored in state: (350, 5)
+AGENT 2: Synthetic Data Generation: Completed in 0.0106 seconds.
+AGENT 2: Synthetic Data Generation: Memory increase: 0.50 MB.
+Overall Test Case Duration: 53.4778 seconds.
+AGENT 3: EDA Analysis - Starting data exploration...
+AGENT 3: Successfully loaded data from C:\Users\ChandraKalidindi\deep\test-xx\data\engineering_20251023_174744.csv
+AGENT 3: EDA analysis completed. Results saved to: C:\Users\ChandraKalidindi\deep\test-xx\data\engineering_20251023_174744_eda.json
+AGENT 3: EDA Analysis: Completed in 0.1215 seconds.
+AGENT 3: EDA Analysis: Memory increase: 1.19 MB.
+Overall Test Case Duration: 53.5993 seconds.
+AGENT 7: Configuration Management - Setting up ML pipeline configuration...
+AGENT 7: Applying user-provided ML configuration...
+AGENT 7: User specified model type: lightgbm
+AGENT 7: Applied custom CV folds: 7
+AGENT 7: Applied custom train size: 0.75
+AGENT 7: Final ML Configuration to be passed to PyCaret: {
+  "task_type": "regression",
+  "model_type": "lightgbm",
+  "session_id": 61018,
+  "data_setup_params": {
+    "fold": 7,
+    "train_size": 0.75
+  },
+  "compare_models": false,
+  "n_top_models": 3,
+  "metrics": null
+}
+AGENT 7: Configuration Agent: Completed in 0.0000 seconds.
+AGENT 7: Configuration Agent: Memory increase: 0.00 MB.
+Overall Test Case Duration: 53.6013 seconds.
+AGENT 4: PyCaret ML Model - Starting model training process...
+AGENT 4: PyCaret Regression Setup complete for target 'tensile_strength'.
+AGENT 4: Training dataset saved to: C:\Users\ChandraKalidindi\deep\test-xx\data\engineering_20251023_174744_training.csv
+AGENT 4: Test dataset saved to: C:\Users\ChandraKalidindi\deep\test-xx\data\engineering_20251023_174744_test.csv
+           MAE          MSE      RMSE      R2   RMSLE    MAPE
+Fold                                                         
+0     312.6141  141050.9318  375.5675 -0.1696  0.4988  0.5014
+1     315.4442  140552.4791  374.9033 -0.2541  0.4449  0.3956
+2     323.5495  134283.8110  366.4476 -0.3043  0.4721  0.5076
+3     376.0232  188734.6382  434.4360 -0.1729  0.5557  0.5837
+4     309.0072  132182.2436  363.5688 -0.1693  0.4392  0.4037
+5     371.1253  176804.8702  420.4817 -0.3191  0.5191  0.5437
+6     334.8802  162867.0586  403.5679 -0.4199  0.4880  0.4329
+Mean  334.6634  153782.2903  391.2818 -0.2584  0.4883  0.4812
+Std    25.8497   20764.3477   26.0927  0.0887  0.0381  0.0667
+AGENT 4: Created specific regression model: lightgbm
+AGENT 4: Regression Model Metrics: {'MAE': 312.6141, 'MSE': 141050.9318, 'RMSE': 375.5675, 'R2': -0.1696, 'RMSLE': 0.4988, 'MAPE': 0.5014}
+Transformation Pipeline and Model Successfully Saved
+AGENT 4: Regression model saved to: C:\Users\ChandraKalidindi\deep\test-xx\models\engineering_20251023_174744_model.pkl
+AGENT 4 DEBUG: Model file exists after saving: C:\Users\ChandraKalidindi\deep\test-xx\models\engineering_20251023_174744_model.pkl
+AGENT 4 DEBUG: Model file size: 102274 bytes
+AGENT 4 DEBUG: Loaded model type: <class 'numpy.ndarray'>
+AGENT 4 DEBUG: Loaded model has predict: False
+AGENT 4: Residuals plot saved to: C:\Users\ChandraKalidindi\deep\test-xx\models\plots\engineering_20251023_174744_pr_curve.png
+AGENT 4: Error plot saved to: C:\Users\ChandraKalidindi\deep\test-xx\models\plots\engineering_20251023_174744_confusion_matrix.png
+AGENT 4: Feature Importance plot saved to: C:\Users\ChandraKalidindi\deep\test-xx\models\plots\engineering_20251023_174744_feature_importance.png
+AGENT 4: PyCaret Agent (Regression): Completed in 5.5018 seconds.
+AGENT 4: PyCaret Agent (Regression): Memory increase: 12.99 MB.
+Overall Test Case Duration: 59.1031 seconds.
+AGENT 5: Model Interpretation - Analyzing model performance...
+AGENT 5: Model interpretation generated successfully.
+AGENT 5: Performance Summary: The model shows good performance with high accuracy (99.9%)
+AGENT 5: Model interpretation saved to file: C:\Users\ChandraKalidindi\deep\test-xx\models\engineering_20251023_174744_model_interpretation.json
+AGENT 5: Model Interpretation: Completed in 46.7260 seconds.
+AGENT 5: Model Interpretation: Memory increase: -4.86 MB.
+Overall Test Case Duration: 105.8310 seconds.
+AGENT 6: Business Rule Application / Model Decision Explanation - Starting...
+AGENT 6: Business rule detected: 'Alloys with 'tensile_strength' below 500 MPa should be marked as 'Weak_Material'.'. Attempting to apply...
+AGENT 6: Raw LLM response for business rule: ```python
+import pandas as pd
+
+# Define the business rule
+rule_description = "Alloys with 'tensile_strength' below 500 MPa should be marked as 'Weak_Material'."
+
+# Define the dataframe
+data = pd.read_csv("your_data.csv")
+
+# Apply the business rule
+data["tensile_strength"][data["tensile_strength"] < 500] = "Weak_Material"
+
+# Print the JSON output
+print(json.dumps({"rule_description": rule_description, "suggested_python_code": data["tensile_strength"].tolist()[0], "expected_impact": "Marked as 'Weak_Material' when 'tensile_strength' is below 500 MPa."}))
+```
+AGENT 6: JSON parsing error from LLM for business rule interpretation: Expecting value: line 1 column 1 (char 0)
+AGENT 6: Business rule/model explanation saved to file: data\inferences\engineering_20251023_174744_business_rule_explanation.json
+AGENT 6: Business Rule Application: Completed in 39.9834 seconds.
+AGENT 6: Business Rule Application: Memory increase: 0.04 MB.
+Overall Test Case Duration: 145.8144 seconds.
+AGENT 8: Report Generation - Compiling final report...
+AGENT 8: Final report content generated successfully.
+AGENT 8: Final report saved to file: C:\Users\ChandraKalidindi\deep\test-xx\reports\engineering_20251023_174744_final_report.md
+REPORT FORMATTER AGENT: Completed in 159.4649 seconds.
+Overall Test Case Duration: 305.2792 seconds.
+
+============================================================
+RESULTS SUMMARY FOR TEST CASE: Material Strength Prediction - Regression
+============================================================
+
+--- DEBUG: STATE CONTENT ANALYSIS ---
+user_prompt: str - Generate a dataset for predicting the tensile strength of new metal alloys. I need 350 rows. Features should include 'carbon_content' (0.01-0.5), 'alloying_elements_percentage' (0.5-15.0), 'heat_treatment_temp' (200-1000 Celsius), and 'grain_size' (1-10 micrometers). The target is 'tensile_strength' (300-1500 MPa).
+business_rule: str - Alloys with 'tensile_strength' below 500 MPa should be marked as 'Weak_Material'.
+ml_configuration: dict - Keys: ['task_type', 'model_type', 'cv_folds', 'train_size']
+pipeline_id: str - 
+agent_timings: list - Length: 8
+
+--- MEMORY USAGE TRACKING ---
+Agent: AGENT 1: User Prompt Parser
+  Memory Increase: -0.67 MB
+Agent: AGENT 2: Synthetic Data Generation
+  Memory Increase: 0.50 MB
+Agent: AGENT 3: EDA Analysis
+  Memory Increase: 1.19 MB
+Agent: AGENT 7: Configuration Agent
+  Memory Increase: 0.00 MB
+Agent: AGENT 4: PyCaret Agent (Regression)
+  Memory Increase: 12.99 MB
+Agent: AGENT 5: Model Interpretation
+  Memory Increase: -4.86 MB
+Agent: AGENT 6: Business Rule Application
+  Memory Increase: 0.04 MB
+dataset_specification_json: dict - Keys: []
+synthetic_data_path: str - 
+synthetic_data_df: None
+target_column: str - 
+dataset_name: str - 
+eda_json_path: str - 
+eda_json: dict - Keys: []
+model_path: str - 
+model_plots_paths: dict - Keys: []
+model_metrics: dict - Keys: []
+pycaret_code: str - 
+training_dataset_path: str - 
+test_dataset_path: str - 
+model_interpretation_json: dict - Keys: []
+modified_dataset_path: str - 
+business_rule_explanation_json: dict - Keys: []
+final_ml_configuration: dict - Keys: []
+final_report_json: dict - Keys: []
+base_data_path: str - C:\Users\ChandraKalidindi\deep\test-xx\data
+base_models_path: str - C:\Users\ChandraKalidindi\deep\test-xx\models
+base_plots_path: str - C:\Users\ChandraKalidindi\deep\test-xx\models\plots
+task_type: str - 
+data_characteristics: dict - Keys: []
+automl_config: dict - Keys: []
+model_artifact: str - 
+evaluation_metrics: dict - Keys: []
+deployment_config: dict - Keys: []
+
+--- PERFORMANCE METRICS ---
+Agent Timings:
+- AGENT 1: User Prompt Parser: 53.46 seconds
+- AGENT 2: Synthetic Data Generation: 0.01 seconds
+- AGENT 3: EDA Analysis: 0.12 seconds
+- AGENT 7: Configuration Agent: 0.00 seconds
+- AGENT 4: PyCaret Agent (Regression): 5.50 seconds
+- AGENT 5: Model Interpretation: 46.73 seconds
+- AGENT 6: Business Rule Application: 39.98 seconds
+- AGENT 8: Report Formatter: 159.46 seconds
+
+Agent Memory Usage:
+- AGENT 1: User Prompt Parser: -0.67 MB
+- AGENT 2: Synthetic Data Generation: 0.50 MB
+- AGENT 3: EDA Analysis: 1.19 MB
+- AGENT 7: Configuration Agent: 0.00 MB
+- AGENT 4: PyCaret Agent (Regression): 12.99 MB
+- AGENT 5: Model Interpretation: -4.86 MB
+- AGENT 6: Business Rule Application: 0.04 MB
+Test case 'Material Strength Prediction - Regression' completed successfully!
+Final State Keys: ['user_prompt', 'business_rule', 'ml_configuration', 'pipeline_id', 'agent_timings', 'agent_memory_usage', 'dataset_specification_json', 'synthetic_data_path', 'synthetic_data_df', 'target_column', 'dataset_name', 'eda_json_path', 'eda_json', 'model_path', 'model_plots_paths', 'model_metrics', 'pycaret_code', 'training_dataset_path', 'test_dataset_path', 'model_interpretation_json', 'modified_dataset_path', 'business_rule_explanation_json', 'final_ml_configuration', 'final_report_json', 'base_data_path', 'base_models_path', 'base_plots_path', 'task_type', 'data_characteristics', 'automl_config', 'model_artifact', 'evaluation_metrics', 'deployment_config', 'override_num_rows', 'initialize_paths', 'overall_duration', 'user_prompt_parser', 'synthetic_data_generation', 'eda_analysis', 'configuration', 'pycaret_model', 'model_interpretation', 'business_rules', 'report_generation']
+
+--- DEBUG: STATE CONTENT ANALYSIS ---
+synthetic_data_df: <class 'NoneType'> - Non-string type
+target_column: <class 'str'> - 
+synthetic_data_generation: <class 'dict'> - Non-string type
+
+--- AGENT 1: DATASET SPECIFICATION JSON ---
+{}
+
+--- AGENT 2: No synthetic data generated or DataFrame is empty. ---
+DEBUG: Available result.__dict__.keys(): ['user_prompt', 'business_rule', 'ml_configuration', 'pipeline_id', 'agent_timings', 'agent_memory_usage', 'dataset_specification_json', 'synthetic_data_path', 'synthetic_data_df', 'target_column', 'dataset_name', 'eda_json_path', 'eda_json', 'model_path', 'model_plots_paths', 'model_metrics', 'pycaret_code', 'training_dataset_path', 'test_dataset_path', 'model_interpretation_json', 'modified_dataset_path', 'business_rule_explanation_json', 'final_ml_configuration', 'final_report_json', 'base_data_path', 'base_models_path', 'base_plots_path', 'task_type', 'data_characteristics', 'automl_config', 'model_artifact', 'evaluation_metrics', 'deployment_config', 'override_num_rows', 'initialize_paths', 'overall_duration', 'user_prompt_parser', 'synthetic_data_generation', 'eda_analysis', 'configuration', 'pycaret_model', 'model_interpretation', 'business_rules', 'report_generation']
+DEBUG: synthetic_data_generation content type: <class 'dict'>
+
+--- AGENT 3: EDA JSON ---
+{}
+
+--- AGENT 7: FINAL ML CONFIGURATION ---
+{}
+
+--- AGENT 4: MODEL METRICS ---
+{}
+
+--- AGENT 4: MODEL PLOTS PATHS ---
+
+Model Saved At: 
+
+--- AGENT 5: MODEL INTERPRETATION JSON ---
+{}
+
+--- AGENT 6: BUSINESS RULE / MODEL EXPLANATION JSON ---
+{}
+
+--- AGENT 8: FINAL REPORT PATH ---
+Report saved to: N/A
+
+######################################################################
+END OF TEST CASE 5: Material Strength Prediction - Regression
+######################################################################
+
+
+######################################################################
+STARTING TEST CASE 6: Crop Yield Prediction - Regression
+######################################################################
+Adjusting synthetic data rows to: 100
+============================================================
+RUNNING TEST CASE: Crop Yield Prediction - Regression
+============================================================
+Overriding dataset num_rows to: 100
+[Paths Initialized] Data: C:\Users\ChandraKalidindi\deep\test-xx\data
+[Paths Initialized] Models: C:\Users\ChandraKalidindi\deep\test-xx\models
+[Paths Initialized] Plots: C:\Users\ChandraKalidindi\deep\test-xx\models\plots
+[Paths Initialized] Data: C:\Users\ChandraKalidindi\deep\test-xx\data
+[Paths Initialized] Models: C:\Users\ChandraKalidindi\deep\test-xx\models
+[Paths Initialized] Plots: C:\Users\ChandraKalidindi\deep\test-xx\models\plots
+Overall Test Case Duration: 0.0123 seconds.
+AGENT 1: User Prompt Parser - Processing user request...
+AGENT 1: JSON parsing error: Expecting value: line 26 column 5 (char 711)
+AGENT 1: Raw response: ```json
+{
+  "task_type": "regression",
+  "domain": "agriculture",
+  "num_rows": 450,
+  "dataset_description": "Synthetic dataset for corn crop yield prediction",
+  "target_column": {
+    "name": "yield_bushels_per_acre",
+    "type": "numerical",
+    "description": "Predicted yield in bushels per acre"
+  },
+  "columns": [
+    {
+      "name": "avg_temp_celsius",
+      "type": "numerical",
+      "faker_method": "random_float",
+      "constraints": {"min": 15, "max": 35},
+      "relationship_to_target": "linear"
+    },
+    {
+      "name": "rainfall_mm",
+      "type": "numerical",
+      "faker_method": "random_float",
+      "constraints": {"min": 50, "max": 500},
+      "relationship_to_target": "linear"
+    },
+    ...
+    {
+      "name": "fertilizer_kg_per_hectare",
+      "type": "numerical",
+      "faker_method": "random_float",
+      "constraints": {"min": 50, "max": 300},
+      "relationship_to_target": "linear"
+    }
+  ]
+}
+```
+AGENT 1: Using fallback specification due to parsing error
+AGENT 1: User Prompt Parser: Completed in 44.3999 seconds.
+AGENT 1: User Prompt Parser: Memory increase: -0.07 MB.
+Test case 'Crop Yield Prediction - Regression' failed with error: local variable 'dataset_spec' referenced before assignment
+
+============================================================
+RESULTS SUMMARY FOR TEST CASE: Crop Yield Prediction - Regression
+============================================================
+
+--- DEBUG: STATE CONTENT ANALYSIS ---
+user_prompt: str - Create a dataset to predict corn crop yield based on environmental factors. I need 450 rows. Features should include 'avg_temp_celsius' (15-35), 'rainfall_mm' (50-500), 'soil_ph' (5.0-8.0), 'sunlight_hours_per_day' (4-12), and 'fertilizer_kg_per_hectare' (50-300). The target is 'yield_bushels_per_acre' (50-250).
+business_rule: None
+ml_configuration: dict - Keys: ['task_type', 'compare_models', 'n_top_models']
+pipeline_id: str - 
+agent_timings: list - Length: 1
+
+--- MEMORY USAGE TRACKING ---
+Agent: AGENT 1: User Prompt Parser
+  Memory Increase: -0.07 MB
+dataset_specification_json: dict - Keys: []
+synthetic_data_path: str - 
+synthetic_data_df: None
+target_column: str - 
+dataset_name: str - 
+eda_json_path: str - 
+eda_json: dict - Keys: []
+model_path: str - 
+model_plots_paths: dict - Keys: []
+model_metrics: dict - Keys: []
+pycaret_code: str - 
+training_dataset_path: str - 
+test_dataset_path: str - 
+model_interpretation_json: dict - Keys: []
+modified_dataset_path: str - 
+business_rule_explanation_json: dict - Keys: []
+final_ml_configuration: dict - Keys: []
+final_report_json: dict - Keys: []
+base_data_path: str - C:\Users\ChandraKalidindi\deep\test-xx\data
+base_models_path: str - C:\Users\ChandraKalidindi\deep\test-xx\models
+base_plots_path: str - C:\Users\ChandraKalidindi\deep\test-xx\models\plots
+task_type: str - 
+data_characteristics: dict - Keys: []
+automl_config: dict - Keys: []
+model_artifact: str - 
+evaluation_metrics: dict - Keys: []
+deployment_config: dict - Keys: []
+
+--- PERFORMANCE METRICS ---
+Agent Timings:
+- AGENT 1: User Prompt Parser: 44.40 seconds
+
+Agent Memory Usage:
+- AGENT 1: User Prompt Parser: -0.07 MB
+Test case 'Crop Yield Prediction - Regression' failed with error: local variable 'dataset_spec' referenced before assignment
+
+######################################################################
+END OF TEST CASE 6: Crop Yield Prediction - Regression
+######################################################################
+
+
+######################################################################
+STARTING TEST CASE 7: Disease Outbreak Risk - Classification
+######################################################################
+Adjusting synthetic data rows to: 100
+============================================================
+RUNNING TEST CASE: Disease Outbreak Risk - Classification
+============================================================
+Overriding dataset num_rows to: 100
+[Paths Initialized] Data: C:\Users\ChandraKalidindi\deep\test-xx\data
+[Paths Initialized] Models: C:\Users\ChandraKalidindi\deep\test-xx\models
+[Paths Initialized] Plots: C:\Users\ChandraKalidindi\deep\test-xx\models\plots
+[Paths Initialized] Data: C:\Users\ChandraKalidindi\deep\test-xx\data
+[Paths Initialized] Models: C:\Users\ChandraKalidindi\deep\test-xx\models
+[Paths Initialized] Plots: C:\Users\ChandraKalidindi\deep\test-xx\models\plots
+Overall Test Case Duration: 0.0087 seconds.
+AGENT 1: User Prompt Parser - Processing user request...
+AGENT 1: Successfully parsed prompt for classification task
+AGENT 1: Dataset will have 380 rows and 5 features
+AGENT 1: Domain identified as: healthcare
+AGENT 1: User Prompt Parser: Completed in 48.9595 seconds.
+AGENT 1: User Prompt Parser: Memory increase: -0.14 MB.
+Warning: Failed to capture PyCaret metrics (cannot import name 'get_metrics' from 'pycaret.utils.generic' (C:\Users\ChandraKalidindi\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pycaret\utils\generic.py))
+Overall Test Case Duration: 48.9702 seconds.
+AGENT 2: Synthetic Data Generation / Loading - Starting data process...
+AGENT 2: Synthetic data generated successfully with 380 rows and 6 columns.
+AGENT 2: Data saved to: C:\Users\ChandraKalidindi\deep\test-xx\data\healthcare_20251023_175329.csv
+AGENT 2: Identified target column: 'outbreak_risk'
+AGENT 2: DataFrame shape stored in state: (380, 6)
+AGENT 2: Synthetic Data Generation: Completed in 0.0129 seconds.
+AGENT 2: Synthetic Data Generation: Memory increase: 0.46 MB.
+Overall Test Case Duration: 48.9928 seconds.
+AGENT 3: EDA Analysis - Starting data exploration...
+AGENT 3: Successfully loaded data from C:\Users\ChandraKalidindi\deep\test-xx\data\healthcare_20251023_175329.csv
+AGENT 3: EDA analysis completed. Results saved to: C:\Users\ChandraKalidindi\deep\test-xx\data\healthcare_20251023_175329_eda.json
+AGENT 3: EDA Analysis: Completed in 0.0631 seconds.
+AGENT 3: EDA Analysis: Memory increase: 1.14 MB.
+Overall Test Case Duration: 49.0559 seconds.
+AGENT 7: Configuration Management - Setting up ML pipeline configuration...
+AGENT 7: Applying user-provided ML configuration...
+AGENT 7: User specified model type: gbc
+AGENT 7: Applied custom train size: 0.7
+AGENT 7: Final ML Configuration to be passed to PyCaret: {
+  "task_type": "classification",
+  "model_type": "gbc",
+  "session_id": 1532,
+  "data_setup_params": {
+    "train_size": 0.7
+  },
+  "compare_models": false,
+  "n_top_models": 3,
+  "metrics": null
+}
+AGENT 7: Configuration Agent: Completed in 0.0000 seconds.
+AGENT 7: Configuration Agent: Memory increase: 0.00 MB.
+Overall Test Case Duration: 49.0559 seconds.
+AGENT 4: PyCaret ML Model - Starting model training process...
+AGENT 4: PyCaret Classification Setup complete for target 'outbreak_risk'.
+AGENT 4: Training dataset saved to: C:\Users\ChandraKalidindi\deep\test-xx\data\healthcare_20251023_175329_training.csv
+AGENT 4: Test dataset saved to: C:\Users\ChandraKalidindi\deep\test-xx\data\healthcare_20251023_175329_test.csv
+      Accuracy     AUC  Recall   Prec.      F1   Kappa     MCC
+Fold                                                          
+0       0.5185  0.5667  0.4667  0.5833  0.5185  0.0488  0.0500
+1       0.5556  0.4725  0.5714  0.5714  0.5714  0.1099  0.1099
+2       0.5185  0.5385  0.5000  0.5385  0.5185  0.0384  0.0385
+3       0.5556  0.4890  0.6429  0.5625  0.6000  0.1050  0.1062
+4       0.4444  0.4890  0.5000  0.4667  0.4828 -0.1157 -0.1160
+5       0.6296  0.6374  0.8571  0.6000  0.7059  0.2458  0.2756
+6       0.5000  0.3512  0.5000  0.5385  0.5185  0.0000  0.0000
+7       0.6154  0.5833  0.7857  0.6111  0.6875  0.2073  0.2186
+8       0.6154  0.6667  0.5714  0.6667  0.6154  0.2353  0.2381
+9       0.4615  0.2381  0.5714  0.5000  0.5333 -0.0964 -0.0976
+Mean    0.5415  0.5032  0.5967  0.5639  0.5752  0.0778  0.0823
+Std     0.0614  0.1229  0.1235  0.0542  0.0720  0.1216  0.1277
+AGENT 4: Created specific classification model: gbc
+AGENT 4: Classification Model Metrics: {'Accuracy': 0.5185, 'AUC': 0.5667, 'Recall': 0.4667, 'Prec.': 0.5833, 'F1': 0.5185, 'Kappa': 0.0488, 'MCC': 0.05}
+AGENT 4 DEBUG: Model object type: <class 'sklearn.ensemble._gb.GradientBoostingClassifier'>
+AGENT 4 DEBUG: Model object attributes: ['__abstractmethods__', '__annotations__', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__setstate__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_abc_impl', '_check_feature_names', '_check_initialized', '_check_n_features', '_check_params', '_clear_state', '_compute_partial_dependence_recursion', '_estimator_type', '_fit_stage', '_fit_stages', '_get_param_names', '_get_tags', '_init_state', '_is_initialized', '_loss', '_make_estimator', '_more_tags', '_n_classes', '_parameter_constraints', '_raw_predict', '_raw_predict_init', '_repr_html_', '_repr_html_inner', '_repr_mimebundle_', '_required_parameters', '_resize_state', '_rng', '_staged_raw_predict', '_validate_data', '_validate_estimator', '_validate_params', '_validate_y', 'alpha', 'apply', 'base_estimator_', 'ccp_alpha', 'classes_', 'criterion', 'decision_function', 'estimators_', 'feature_importances_', 'feature_names_in_', 'fit', 'get_params', 'init', 'init_', 'learning_rate', 'loss', 'loss_', 'max_depth', 'max_features', 'max_features_', 'max_leaf_nodes', 'min_impurity_decrease', 'min_samples_leaf', 'min_samples_split', 'min_weight_fraction_leaf', 'n_classes_', 'n_estimators', 'n_estimators_', 'n_features_in_', 'n_iter_no_change', 'predict', 'predict_log_proba', 'predict_proba', 'random_state', 'score', 'set_params', 'staged_decision_function', 'staged_predict', 'staged_predict_proba', 'subsample', 'tol', 'train_score_', 'validation_fraction', 'verbose', 'warm_start']
+AGENT 4 DEBUG: Model save path: C:\Users\ChandraKalidindi\deep\test-xx\models\healthcare_20251023_175329_model
+AGENT 4 DEBUG: Model has predict method: True
+Transformation Pipeline and Model Successfully Saved
+AGENT 4: Classification model saved to: C:\Users\ChandraKalidindi\deep\test-xx\models\healthcare_20251023_175329_model.pkl
+Warning: Could not extract metrics via pull(): 'charmap' codec can't encode character '\u2705' in position 0: character maps to <undefined>
+AGENT 4 DEBUG: Model file exists after saving: C:\Users\ChandraKalidindi\deep\test-xx\models\healthcare_20251023_175329_model.pkl
+AGENT 4 DEBUG: Model file size: 167001 bytes
+AGENT 4 DEBUG: Loaded model type: <class 'numpy.ndarray'>
+AGENT 4 DEBUG: Loaded model has predict: False
+AGENT 4 Warning: Could not generate PR curve plot for classification: PyCaret did not save PR curve plot to expected temp path: C:\Users\ChandraKalidindi\deep\test-xx\PR Curve.png
+AGENT 4: Confusion Matrix plot saved to: C:\Users\ChandraKalidindi\deep\test-xx\models\plots\healthcare_20251023_175329_confusion_matrix.png
+AGENT 4: Feature Importance plot saved to: C:\Users\ChandraKalidindi\deep\test-xx\models\plots\healthcare_20251023_175329_feature_importance.png
+AGENT 4: PyCaret Agent (Classification): Completed in 10.9877 seconds.
+AGENT 4: PyCaret Agent (Classification): Memory increase: -1.31 MB.
+Overall Test Case Duration: 60.0436 seconds.
+AGENT 5: Model Interpretation - Analyzing model performance...
+AGENT 5: Model interpretation generated successfully.
+AGENT 5: Performance Summary: The model shows good performance with high accuracy (0.0614)
+AGENT 5: Model interpretation saved to file: C:\Users\ChandraKalidindi\deep\test-xx\models\healthcare_20251023_175329_model_interpretation.json
+AGENT 5: Model Interpretation: Completed in 41.5153 seconds.
+AGENT 5: Model Interpretation: Memory increase: -4.51 MB.
+Overall Test Case Duration: 101.5627 seconds.
+AGENT 6: Business Rule Application / Model Decision Explanation - Starting...
+AGENT 6: Business rule detected: 'Regions with 'outbreak_risk' of 1 and 'population_density' > 2000 should be prioritized for immediate intervention.'. Attempting to apply...
+AGENT 6: Raw LLM response for business rule: ```python
+import pandas as pd
+
+# Define the business rule
+rule_description = "Regions with 'outbreak_risk' of 1 and 'population_density' > 2000 should be prioritized for immediate intervention."
+
+# Define the data columns and their types
+data_columns = {
+    "outbreak_risk": "object",
+    "population_density": "float64"
+}
+
+# Define the rule condition
+condition = (data_columns["outbreak_risk"] == 1) & (data_columns["population_density"] > 2000)
+
+# Define the expected impact of applying the rule
+expected_impact = "Regions with high risk and population density above 2000 should be prioritized for immediate intervention."
+
+# Create a DataFrame from the data
+df = pd.DataFrame(data, columns=data_columns)
+
+# Apply the business rule to the DataFrame
+df.loc[condition, "outbreak_risk"] = 1
+
+# Generate the JSON output
+json_output = {
+    "rule_description": rule_description,
+    "suggested_python_code": df["outbreak_risk"].tolist()[0],
+    "expected_impact": expected_impact
+}
+
+# Print the JSON output
+print(json.dumps(json_output))
+```
+AGENT 6: JSON parsing error from LLM for business rule interpretation: Expecting value: line 1 column 1 (char 0)
+AGENT 6: Business rule/model explanation saved to file: data\inferences\healthcare_20251023_175329_business_rule_explanation.json
+AGENT 6: Business Rule Application: Completed in 54.1349 seconds.
+AGENT 6: Business Rule Application: Memory increase: -0.03 MB.
+Overall Test Case Duration: 155.7011 seconds.
+AGENT 8: Report Generation - Compiling final report...
+AGENT 8: Final report content generated successfully.
+AGENT 8: Final report saved to file: C:\Users\ChandraKalidindi\deep\test-xx\reports\healthcare_20251023_175329_final_report.md
+REPORT FORMATTER AGENT: Completed in 155.8120 seconds.
+Overall Test Case Duration: 311.5141 seconds.
+
+============================================================
+RESULTS SUMMARY FOR TEST CASE: Disease Outbreak Risk - Classification
+============================================================
+
+--- DEBUG: STATE CONTENT ANALYSIS ---
+user_prompt: str - Generate a dataset for predicting the risk of a regional disease outbreak. I need 380 rows. Features should include 'population_density' (10-5000 people/km2), 'avg_humidity' (30-95%), 'vaccination_rate' (0-100%), 'healthcare_access_score' (1-10), and 'travel_index' (0-1). The target is 'outbreak_risk' (binary: 0=low, 1=high).
+business_rule: str - Regions with 'outbreak_risk' of 1 and 'population_density' > 2000 should be prioritized for immediate intervention.
+ml_configuration: dict - Keys: ['task_type', 'model_type', 'train_size']
+pipeline_id: str - 
+agent_timings: list - Length: 8
+
+--- MEMORY USAGE TRACKING ---
+Agent: AGENT 1: User Prompt Parser
+  Memory Increase: -0.14 MB
+Agent: AGENT 2: Synthetic Data Generation
+  Memory Increase: 0.46 MB
+Agent: AGENT 3: EDA Analysis
+  Memory Increase: 1.14 MB
+Agent: AGENT 7: Configuration Agent
+  Memory Increase: 0.00 MB
+Agent: AGENT 4: PyCaret Agent (Classification)
+  Memory Increase: -1.31 MB
+Agent: AGENT 5: Model Interpretation
+  Memory Increase: -4.51 MB
+Agent: AGENT 6: Business Rule Application
+  Memory Increase: -0.03 MB
+dataset_specification_json: dict - Keys: []
+synthetic_data_path: str - 
+synthetic_data_df: None
+target_column: str - 
+dataset_name: str - 
+eda_json_path: str - 
+eda_json: dict - Keys: []
+model_path: str - 
+model_plots_paths: dict - Keys: []
+model_metrics: dict - Keys: []
+pycaret_code: str - 
+training_dataset_path: str - 
+test_dataset_path: str - 
+model_interpretation_json: dict - Keys: []
+modified_dataset_path: str - 
+business_rule_explanation_json: dict - Keys: []
+final_ml_configuration: dict - Keys: []
+final_report_json: dict - Keys: []
+base_data_path: str - C:\Users\ChandraKalidindi\deep\test-xx\data
+base_models_path: str - C:\Users\ChandraKalidindi\deep\test-xx\models
+base_plots_path: str - C:\Users\ChandraKalidindi\deep\test-xx\models\plots
+task_type: str - 
+data_characteristics: dict - Keys: []
+automl_config: dict - Keys: []
+model_artifact: str - 
+evaluation_metrics: dict - Keys: []
+deployment_config: dict - Keys: []
+
+--- PERFORMANCE METRICS ---
+Agent Timings:
+- AGENT 1: User Prompt Parser: 48.96 seconds
+- AGENT 2: Synthetic Data Generation: 0.01 seconds
+- AGENT 3: EDA Analysis: 0.06 seconds
+- AGENT 7: Configuration Agent: 0.00 seconds
+- AGENT 4: PyCaret Agent (Classification): 10.99 seconds
+- AGENT 5: Model Interpretation: 41.52 seconds
+- AGENT 6: Business Rule Application: 54.13 seconds
+- AGENT 8: Report Formatter: 155.81 seconds
+
+Agent Memory Usage:
+- AGENT 1: User Prompt Parser: -0.14 MB
+- AGENT 2: Synthetic Data Generation: 0.46 MB
+- AGENT 3: EDA Analysis: 1.14 MB
+- AGENT 7: Configuration Agent: 0.00 MB
+- AGENT 4: PyCaret Agent (Classification): -1.31 MB
+- AGENT 5: Model Interpretation: -4.51 MB
+- AGENT 6: Business Rule Application: -0.03 MB
+Test case 'Disease Outbreak Risk - Classification' completed successfully!
+Final State Keys: ['user_prompt', 'business_rule', 'ml_configuration', 'pipeline_id', 'agent_timings', 'agent_memory_usage', 'dataset_specification_json', 'synthetic_data_path', 'synthetic_data_df', 'target_column', 'dataset_name', 'eda_json_path', 'eda_json', 'model_path', 'model_plots_paths', 'model_metrics', 'pycaret_code', 'training_dataset_path', 'test_dataset_path', 'model_interpretation_json', 'modified_dataset_path', 'business_rule_explanation_json', 'final_ml_configuration', 'final_report_json', 'base_data_path', 'base_models_path', 'base_plots_path', 'task_type', 'data_characteristics', 'automl_config', 'model_artifact', 'evaluation_metrics', 'deployment_config', 'override_num_rows', 'initialize_paths', 'overall_duration', 'user_prompt_parser', 'synthetic_data_generation', 'eda_analysis', 'configuration', 'pycaret_model', 'model_interpretation', 'business_rules', 'report_generation']
+
+--- DEBUG: STATE CONTENT ANALYSIS ---
+synthetic_data_df: <class 'NoneType'> - Non-string type
+target_column: <class 'str'> - 
+synthetic_data_generation: <class 'dict'> - Non-string type
+
+--- AGENT 1: DATASET SPECIFICATION JSON ---
+{}
+
+--- AGENT 2: No synthetic data generated or DataFrame is empty. ---
+DEBUG: Available result.__dict__.keys(): ['user_prompt', 'business_rule', 'ml_configuration', 'pipeline_id', 'agent_timings', 'agent_memory_usage', 'dataset_specification_json', 'synthetic_data_path', 'synthetic_data_df', 'target_column', 'dataset_name', 'eda_json_path', 'eda_json', 'model_path', 'model_plots_paths', 'model_metrics', 'pycaret_code', 'training_dataset_path', 'test_dataset_path', 'model_interpretation_json', 'modified_dataset_path', 'business_rule_explanation_json', 'final_ml_configuration', 'final_report_json', 'base_data_path', 'base_models_path', 'base_plots_path', 'task_type', 'data_characteristics', 'automl_config', 'model_artifact', 'evaluation_metrics', 'deployment_config', 'override_num_rows', 'initialize_paths', 'overall_duration', 'user_prompt_parser', 'synthetic_data_generation', 'eda_analysis', 'configuration', 'pycaret_model', 'model_interpretation', 'business_rules', 'report_generation']
+DEBUG: synthetic_data_generation content type: <class 'dict'>
+
+--- AGENT 3: EDA JSON ---
+{}
+
+--- AGENT 7: FINAL ML CONFIGURATION ---
+{}
+
+--- AGENT 4: MODEL METRICS ---
+{}
+
+--- AGENT 4: MODEL PLOTS PATHS ---
+
+Model Saved At: 
+
+--- AGENT 5: MODEL INTERPRETATION JSON ---
+{}
+
+--- AGENT 6: BUSINESS RULE / MODEL EXPLANATION JSON ---
+{}
+
+--- AGENT 8: FINAL REPORT PATH ---
+Report saved to: N/A
+
+######################################################################
+END OF TEST CASE 7: Disease Outbreak Risk - Classification
+######################################################################
+
+
+######################################################################
+STARTING TEST CASE 8: City Segmentation - Clustering
+######################################################################
+Adjusting synthetic data rows to: 100
+============================================================
+RUNNING TEST CASE: City Segmentation - Clustering
+============================================================
+Overriding dataset num_rows to: 100
+[Paths Initialized] Data: C:\Users\ChandraKalidindi\deep\test-xx\data
+[Paths Initialized] Models: C:\Users\ChandraKalidindi\deep\test-xx\models
+[Paths Initialized] Plots: C:\Users\ChandraKalidindi\deep\test-xx\models\plots
+[Paths Initialized] Data: C:\Users\ChandraKalidindi\deep\test-xx\data
+[Paths Initialized] Models: C:\Users\ChandraKalidindi\deep\test-xx\models
+[Paths Initialized] Plots: C:\Users\ChandraKalidindi\deep\test-xx\models\plots
+Overall Test Case Duration: 0.0042 seconds.
+AGENT 1: User Prompt Parser - Processing user request...
+AGENT 1: Successfully parsed prompt for classification task
+AGENT 1: Dataset will have 280 rows and 7 features
+AGENT 1: Domain identified as: healthcare
+AGENT 1: User Prompt Parser: Completed in 61.9844 seconds.
+AGENT 1: User Prompt Parser: Memory increase: -113.90 MB.
+Warning: Failed to capture PyCaret metrics (cannot import name 'get_metrics' from 'pycaret.utils.generic' (C:\Users\ChandraKalidindi\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pycaret\utils\generic.py))
+Overall Test Case Duration: 61.9943 seconds.
+AGENT 2: Synthetic Data Generation / Loading - Starting data process...
+AGENT 2: Synthetic data generated successfully with 280 rows and 7 columns.
+AGENT 2: Data saved to: C:\Users\ChandraKalidindi\deep\test-xx\data\healthcare_20251023_175854.csv
+AGENT 2: Identified target column: 'condition'
+AGENT 2: DataFrame shape stored in state: (280, 7)
+AGENT 2: Synthetic Data Generation: Completed in 0.1198 seconds.
+AGENT 2: Synthetic Data Generation: Memory increase: 5.00 MB.
+Overall Test Case Duration: 62.1151 seconds.
+AGENT 3: EDA Analysis - Starting data exploration...
+AGENT 3: Successfully loaded data from C:\Users\ChandraKalidindi\deep\test-xx\data\healthcare_20251023_175854.csv
+AGENT 3: EDA analysis completed. Results saved to: C:\Users\ChandraKalidindi\deep\test-xx\data\healthcare_20251023_175854_eda.json
+AGENT 3: EDA Analysis: Completed in 0.0941 seconds.
+AGENT 3: EDA Analysis: Memory increase: 5.46 MB.
+Overall Test Case Duration: 62.2098 seconds.
+AGENT 7: Configuration Management - Setting up ML pipeline configuration...
+AGENT 7: Applying user-provided ML configuration...
+AGENT 7 Warning: User specified task_type 'clustering' which conflicts with detected dataset task_type 'classification'. Using detected task_type from dataset.
+AGENT 7: User specified model type: agglomerative
+AGENT 7: Final ML Configuration to be passed to PyCaret: {
+  "task_type": "classification",
+  "model_type": "agglomerative",
+  "session_id": 88623,
+  "data_setup_params": {},
+  "compare_models": false,
+  "n_top_models": 3,
+  "metrics": null
+}
+AGENT 7: Configuration Agent: Completed in 0.0000 seconds.
+AGENT 7: Configuration Agent: Memory increase: 0.00 MB.
+Overall Test Case Duration: 62.2098 seconds.
+AGENT 4: PyCaret ML Model - Starting model training process...
+AGENT 4: PyCaret Classification Setup complete for target 'condition'.
+AGENT 4: Training dataset saved to: C:\Users\ChandraKalidindi\deep\test-xx\data\healthcare_20251023_175854_training.csv
+AGENT 4: Test dataset saved to: C:\Users\ChandraKalidindi\deep\test-xx\data\healthcare_20251023_175854_test.csv
+AGENT 4 Error (ValueError): Estimator agglomerative not available. Please see docstring for list of available estimators.
+AGENT 4: PyCaret Agent (ValueError): Completed in 1.2161 seconds.
+AGENT 4: PyCaret Agent (ValueError): Memory increase: 15.10 MB.
+Overall Test Case Duration: 63.4259 seconds.
+AGENT 5: Model Interpretation - Analyzing model performance...
+AGENT 5: Model interpretation generated successfully.
+AGENT 5: Performance Summary: The model shows good performance with high accuracy (99.9%)
+AGENT 5: Model interpretation saved to file: C:\Users\ChandraKalidindi\deep\test-xx\models\healthcare_20251023_175854_model_interpretation.json
+AGENT 5: Model Interpretation: Completed in 38.5557 seconds.
+AGENT 5: Model Interpretation: Memory increase: -2.48 MB.
+Overall Test Case Duration: 101.9817 seconds.
+AGENT 6: Business Rule Application / Model Decision Explanation - Starting...
+AGENT 6: No business rule provided. Explaining ML model decisions...
+AGENT 6: Model decision explanation generated successfully.
+AGENT 6: Business rule/model explanation saved to file: data\inferences\healthcare_20251023_175854_business_rule_explanation.json
+AGENT 6: Business Rule Application: Completed in 35.7250 seconds.
+AGENT 6: Business Rule Application: Memory increase: -0.00 MB.
+Overall Test Case Duration: 137.7066 seconds.
+AGENT 8: Report Generation - Compiling final report...
+AGENT 8: Final report content generated successfully.
+AGENT 8: Final report saved to file: C:\Users\ChandraKalidindi\deep\test-xx\reports\healthcare_20251023_175854_final_report.md
+REPORT FORMATTER AGENT: Completed in 150.5547 seconds.
+Overall Test Case Duration: 288.2736 seconds.
+
+============================================================
+RESULTS SUMMARY FOR TEST CASE: City Segmentation - Clustering
+============================================================
+
+--- DEBUG: STATE CONTENT ANALYSIS ---
+user_prompt: str - Create a dataset to segment cities based on demographic and economic indicators. I need 280 rows. Include 'city_id' (unique alphanumeric), 'avg_income' (30000-150000), 'unemployment_rate' (2-15%), 'population_growth_rate' (-2 to 5%), 'education_index' (0.5-1.0), and 'public_transport_usage' (0-100%).
+business_rule: None
+ml_configuration: dict - Keys: ['task_type', 'n_clusters', 'model_type']
+pipeline_id: str - 
+agent_timings: list - Length: 8
+
+--- MEMORY USAGE TRACKING ---
+Agent: AGENT 1: User Prompt Parser
+  Memory Increase: -113.90 MB
+Agent: AGENT 2: Synthetic Data Generation
+  Memory Increase: 5.00 MB
+Agent: AGENT 3: EDA Analysis
+  Memory Increase: 5.46 MB
+Agent: AGENT 7: Configuration Agent
+  Memory Increase: 0.00 MB
+Agent: AGENT 4: PyCaret Agent (ValueError)
+  Memory Increase: 15.10 MB
+Agent: AGENT 5: Model Interpretation
+  Memory Increase: -2.48 MB
+Agent: AGENT 6: Business Rule Application
+  Memory Increase: -0.00 MB
+dataset_specification_json: dict - Keys: []
+synthetic_data_path: str - 
+synthetic_data_df: None
+target_column: str - 
+dataset_name: str - 
+eda_json_path: str - 
+eda_json: dict - Keys: []
+model_path: str - 
+model_plots_paths: dict - Keys: []
+model_metrics: dict - Keys: []
+pycaret_code: str - 
+training_dataset_path: str - 
+test_dataset_path: str - 
+model_interpretation_json: dict - Keys: []
+modified_dataset_path: str - 
+business_rule_explanation_json: dict - Keys: []
+final_ml_configuration: dict - Keys: []
+final_report_json: dict - Keys: []
+base_data_path: str - C:\Users\ChandraKalidindi\deep\test-xx\data
+base_models_path: str - C:\Users\ChandraKalidindi\deep\test-xx\models
+base_plots_path: str - C:\Users\ChandraKalidindi\deep\test-xx\models\plots
+task_type: str - 
+data_characteristics: dict - Keys: []
+automl_config: dict - Keys: []
+model_artifact: str - 
+evaluation_metrics: dict - Keys: []
+deployment_config: dict - Keys: []
+
+--- PERFORMANCE METRICS ---
+Agent Timings:
+- AGENT 1: User Prompt Parser: 61.98 seconds
+- AGENT 2: Synthetic Data Generation: 0.12 seconds
+- AGENT 3: EDA Analysis: 0.09 seconds
+- AGENT 7: Configuration Agent: 0.00 seconds
+- AGENT 4: PyCaret Agent (ValueError): 1.22 seconds
+- AGENT 5: Model Interpretation: 38.56 seconds
+- AGENT 6: Business Rule Application: 35.72 seconds
+- AGENT 8: Report Formatter: 150.55 seconds
+
+Agent Memory Usage:
+- AGENT 1: User Prompt Parser: -113.90 MB
+- AGENT 2: Synthetic Data Generation: 5.00 MB
+- AGENT 3: EDA Analysis: 5.46 MB
+- AGENT 7: Configuration Agent: 0.00 MB
+- AGENT 4: PyCaret Agent (ValueError): 15.10 MB
+- AGENT 5: Model Interpretation: -2.48 MB
+- AGENT 6: Business Rule Application: -0.00 MB
+Test case 'City Segmentation - Clustering' completed successfully!
+Final State Keys: ['user_prompt', 'business_rule', 'ml_configuration', 'pipeline_id', 'agent_timings', 'agent_memory_usage', 'dataset_specification_json', 'synthetic_data_path', 'synthetic_data_df', 'target_column', 'dataset_name', 'eda_json_path', 'eda_json', 'model_path', 'model_plots_paths', 'model_metrics', 'pycaret_code', 'training_dataset_path', 'test_dataset_path', 'model_interpretation_json', 'modified_dataset_path', 'business_rule_explanation_json', 'final_ml_configuration', 'final_report_json', 'base_data_path', 'base_models_path', 'base_plots_path', 'task_type', 'data_characteristics', 'automl_config', 'model_artifact', 'evaluation_metrics', 'deployment_config', 'override_num_rows', 'initialize_paths', 'overall_duration', 'user_prompt_parser', 'synthetic_data_generation', 'eda_analysis', 'configuration', 'pycaret_model', 'model_interpretation', 'business_rules', 'report_generation']
+
+--- DEBUG: STATE CONTENT ANALYSIS ---
+synthetic_data_df: <class 'NoneType'> - Non-string type
+target_column: <class 'str'> - 
+synthetic_data_generation: <class 'dict'> - Non-string type
+
+--- AGENT 1: DATASET SPECIFICATION JSON ---
+{}
+
+--- AGENT 2: No synthetic data generated or DataFrame is empty. ---
+DEBUG: Available result.__dict__.keys(): ['user_prompt', 'business_rule', 'ml_configuration', 'pipeline_id', 'agent_timings', 'agent_memory_usage', 'dataset_specification_json', 'synthetic_data_path', 'synthetic_data_df', 'target_column', 'dataset_name', 'eda_json_path', 'eda_json', 'model_path', 'model_plots_paths', 'model_metrics', 'pycaret_code', 'training_dataset_path', 'test_dataset_path', 'model_interpretation_json', 'modified_dataset_path', 'business_rule_explanation_json', 'final_ml_configuration', 'final_report_json', 'base_data_path', 'base_models_path', 'base_plots_path', 'task_type', 'data_characteristics', 'automl_config', 'model_artifact', 'evaluation_metrics', 'deployment_config', 'override_num_rows', 'initialize_paths', 'overall_duration', 'user_prompt_parser', 'synthetic_data_generation', 'eda_analysis', 'configuration', 'pycaret_model', 'model_interpretation', 'business_rules', 'report_generation']
+DEBUG: synthetic_data_generation content type: <class 'dict'>
+
+--- AGENT 3: EDA JSON ---
+{}
+
+--- AGENT 7: FINAL ML CONFIGURATION ---
+{}
+
+--- AGENT 4: MODEL METRICS ---
+{}
+
+--- AGENT 4: MODEL PLOTS PATHS ---
+
+Model Saved At: 
+
+--- AGENT 5: MODEL INTERPRETATION JSON ---
+{}
+
+--- AGENT 6: BUSINESS RULE / MODEL EXPLANATION JSON ---
+{}
+
+--- AGENT 8: FINAL REPORT PATH ---
+Report saved to: N/A
+
+######################################################################
+END OF TEST CASE 8: City Segmentation - Clustering
+######################################################################
+
